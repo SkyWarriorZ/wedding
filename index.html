@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoàng Tiến & Thu Trang · Chọn mẫu</title>
+<meta name="description" content="6 mẫu website cưới cho Hoàng Tiến & Thu Trang">
+<!-- Font lưu ngay trong thư mục fonts/ của dự án: hiển thị đúng cả khi mở file trực tiếp, không có mạng hoặc mạng chặn Google Fonts -->
+<link rel="stylesheet" href="fonts/chooser.css">
+<link rel="stylesheet" href="fonts/06-thiep-nho.css">
+<style>
+  :root{
+    --bg:#f7f2ec; --ink:#2a211c; --muted:#7a6a5f; --line:#e3d8cc; --accent:#b08d57;
+    --t1:#f6f1ea; --t1i:#111; --t1a:#b08d57;
+    --t2:#8e1b1b; --t2i:#fbf4e6; --t2a:#d9b25a;
+    --t3:#110e0c; --t3i:#f3e9dc; --t3a:#e0a96d;
+    --t4:#efe6d2; --t4i:#1d1a17; --t4a:#b3302a; --t4j:#4f7a6a;
+    --t5:#e4e2da; --t5i:#1c2541; --t5a:#c92a47; --t5j:#56607a;
+    --t6:#f2e4df; --t6i:#4b3833; --t6a:#8e3b3b; --t6j:#b48c7e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font:400 16px/1.6 "Be Vietnam Pro",system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1320px;margin:0 auto;padding:72px 24px 56px}
+  header{text-align:center;margin-bottom:56px}
+  .kicker{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+  h1{font:400 clamp(52px,9vw,104px)/1 "Great Vibes",cursive;margin:18px 0 6px;color:var(--ink)}
+  h1 .amp{color:var(--accent)}
+  .date{font:italic 400 22px "Cormorant Garamond",serif;color:var(--muted)}
+  .rule{width:64px;height:1px;background:var(--accent);margin:26px auto 0}
+  .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+  .card{grid-column:span 2}
+  .card:nth-child(4){grid-column:1/3}.card:nth-child(5){grid-column:3/5}.card:nth-child(6){grid-column:5/7}
+  .card{position:relative;display:flex;flex-direction:column;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 1px 0 var(--line),0 18px 40px -24px rgba(60,40,20,.35);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;opacity:0;transform:translateY(30px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .card:nth-child(2){animation-delay:.12s}.card:nth-child(3){animation-delay:.24s}.card:nth-child(4){animation-delay:.36s}.card:nth-child(5){animation-delay:.48s}.card:nth-child(6){animation-delay:.6s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .card:hover{transform:translateY(-8px);box-shadow:0 1px 0 var(--line),0 30px 60px -28px rgba(60,40,20,.5)}
+  .shot{position:relative;aspect-ratio:4/5;overflow:hidden}
+  .shot img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .card:hover .shot img{transform:scale(1.06)}
+  .shot .over{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+  .num{position:absolute;top:18px;left:20px;font:600 12px "Be Vietnam Pro";letter-spacing:.2em}
+  .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .body h2{font:600 26px/1.15 "Cormorant Garamond",serif}
+  .body p{color:var(--muted);font-size:14.5px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+  .tags span{font-size:11.5px;padding:4px 10px;border-radius:99px;background:var(--bg);color:var(--muted)}
+  .swatch{display:flex;gap:6px;margin-top:auto;padding-top:14px;align-items:center}
+  .swatch i{width:18px;height:18px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+  .go{margin-left:auto;font-size:13px;font-weight:600;letter-spacing:.06em;display:inline-flex;align-items:center;gap:6px}
+  .go::after{content:"→";transition:transform .3s}
+  .card:hover .go::after{transform:translateX(4px)}
+
+  /* Mỗi thẻ mang hơi thở của mẫu tương ứng */
+  .c1 .over{background:linear-gradient(to top,rgba(246,241,234,.95),rgba(246,241,234,0) 55%);color:var(--t1i)}
+  .c1 .mast{font:italic 600 44px/0.95 "Noto Serif Display",serif;letter-spacing:-.02em}
+  .c1 .num{color:#fff;mix-blend-mode:difference}
+  .c2 .over{background:radial-gradient(circle at 50% 38%,rgba(142,27,27,0) 30%,rgba(142,27,27,.85) 75%);color:var(--t2i);align-items:center;text-align:center}
+  .c2 .hy{font:700 64px/1 serif;color:var(--t2a);text-shadow:0 2px 12px rgba(0,0,0,.35);margin-bottom:auto;margin-top:8px}
+  .c2 .script{font:400 36px/1.1 "Charm",cursive}
+  .c2 .num{color:var(--t2a)}
+  .c3 .shot::before,.c3 .shot::after{content:"";position:absolute;left:0;right:0;height:11%;background:#000;z-index:2}
+  .c3 .shot::before{top:0}.c3 .shot::after{bottom:0}
+  .c3 .shot img{filter:sepia(.25) contrast(1.05) brightness(.8)}
+  .c3 .over{background:linear-gradient(to top,rgba(17,14,12,.9),rgba(17,14,12,0) 60%);color:var(--t3i);padding-bottom:calc(11% + 14px)}
+  .c3 .film{font:italic 400 34px/1.05 "Bona Nova",serif}
+  .c3 .credit{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--t3a);margin-bottom:6px}
+  .c3 .num{color:var(--t3a);z-index:3}
+
+  .c4 .shot img{filter:grayscale(1) sepia(.35) contrast(1.05) brightness(1.05)}
+  .c4 .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(239,230,210,.97) 0%,rgba(239,230,210,.75) 18%,rgba(239,230,210,0) 38%,rgba(239,230,210,0) 60%,rgba(239,230,210,.95) 90%);pointer-events:none}
+  .c4 .over{z-index:1;color:var(--t4i);align-items:center;text-align:center}
+  .c4 .brush{font:400 68px/1 "Ma Shan Zheng",serif;color:var(--t4i);margin-bottom:auto;margin-top:6px;letter-spacing:.06em}
+  .c4 .seal{display:inline-grid;place-items:center;width:44px;height:44px;border:2px solid var(--t4a);color:var(--t4a);font:600 11px/1.15 "Be Vietnam Pro";border-radius:4px;transform:rotate(-6deg);background:rgba(179,48,42,.06)}
+  .c4 .names{font:400 24px/1.15 "Hina Mincho",serif;margin-top:8px}
+  .c4 .num{color:var(--t4a);z-index:2}
+
+  .c5 .shot img{filter:saturate(.75)}
+  .c5 .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(228,226,218,.98) 0%,rgba(228,226,218,.9) 30%,rgba(228,226,218,0) 52%);pointer-events:none}
+  .c5 .over{z-index:1;color:var(--t5i);justify-content:flex-start;padding-top:44px}
+  .c5 .tn{font:italic 500 50px/.95 "Alegreya",serif;position:relative;letter-spacing:-.01em}
+  .c5 .tn span{display:block;padding-left:.7em}
+  .c5 .tn svg{position:absolute;left:0;top:0;width:220px;height:120px;overflow:visible;z-index:-1}
+  .c5 .tn path{fill:none;stroke:var(--t5a);stroke-width:2;stroke-linecap:round}
+  .c5 .num{color:var(--t5a);z-index:2}
+
+  .c6 .shot{background:var(--t6)}
+  .c6 .shot img{width:62%;height:auto;aspect-ratio:4/5;margin:34px auto 0;padding:8px 8px 30px;background:#fbf7f4;box-shadow:0 14px 30px -18px rgba(75,56,51,.6);transform:rotate(-3deg)}
+  .c6:hover .shot img{transform:rotate(-3deg) scale(1.03)}
+  .c6 .over{z-index:1;color:var(--t6i);align-items:center;text-align:center;padding-bottom:16px}
+  .c6 .seal6{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 38% 32%,#b25454,var(--t6a) 55%,#6f2b2b);color:#f6dcd4;font:italic 500 15px/1 "Brygada 1918",serif;box-shadow:0 4px 10px rgba(75,56,51,.35)}
+  .c6 .names6{font:400 34px/1 "Moon Dance",cursive;margin-top:6px}
+  .c6 .num{color:var(--t6a);z-index:2}
+
+  .note{margin-top:56px;padding:26px 28px;border:1px dashed var(--line);border-radius:16px;font-size:14px;color:var(--muted);background:rgba(255,255,255,.5)}
+  .note h3{font:600 20px "Cormorant Garamond",serif;color:var(--ink);margin-bottom:8px}
+  .note ul{padding-left:18px;display:grid;gap:4px}
+  .note code{font-size:12.5px;background:var(--bg);padding:1px 6px;border-radius:6px;color:var(--ink)}
+  footer{text-align:center;margin-top:40px;font:italic 18px "Cormorant Garamond",serif;color:var(--muted)}
+
+  @media (max-width:1100px){.grid{grid-template-columns:1fr 1fr;gap:28px}.card,.card:nth-child(4),.card:nth-child(5),.card:nth-child(6){grid-column:auto}}
+  @media (max-width:620px){.wrap{padding:48px 16px 40px}.grid{grid-template-columns:1fr;gap:22px}.shot{aspect-ratio:4/4.4}}
+  @media (prefers-reduced-motion:reduce){.card{animation:none;opacity:1;transform:none}.card,.shot img{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">6 mẫu website cưới</div>
+    <h1>Hoàng Tiến <span class="amp">&</span> Thu Trang</h1>
+    <div class="date">Chủ Nhật · 20 tháng 12 năm 2026</div>
+    <div class="rule"></div>
+  </header>
+
+  <main class="grid">
+    <a class="card c1" href="01-editorial/index.html">
+      <div class="shot">
+        <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80&auto=format&fit=crop" alt="Cô dâu chú rể cầm hoa cưới">
+        <span class="num">MẪU 01</span>
+        <div class="over"><div class="mast">Trang &amp; Tiến</div></div>
+      </div>
+      <div class="body">
+        <h2>The Wedding Issue</h2>
+        <p>Một số tạp chí thời trang dành riêng cho hai bạn: trang bìa chữ cỡ lớn, bài phỏng vấn đôi, ảnh dàn trang kiểu editorial.</p>
+        <div class="tags"><span>Tạp chí</span><span>Sang trọng</span><span>Tối giản</span></div>
+        <div class="swatch"><i style="background:var(--t1)"></i><i style="background:var(--t1i)"></i><i style="background:var(--t1a)"></i><i style="background:#e9d6cc"></i><span class="go">Xem mẫu</span></div>
+      </div>
+    </a>
+
+    <a class="card c2" href="02-song-hy/index.html">
+      <div class="shot">
+        <img src="https://images.unsplash.com/photo-1606216794079-73f85bbd57d5?w=800&q=80&auto=format&fit=crop" alt="Cô dâu chú rể dưới tấm voan">
+        <span class="num">MẪU 02</span>
+        <div class="over"><div class="hy">囍</div><div class="script">Tiến &amp; Trang</div></div>
+      </div>
+      <div class="body">
+        <h2>Song Hỷ</h2>
+        <p>Thiệp cưới Việt sống động: mở phong bì đỏ, hoa đào rơi, đèn lồng, lịch âm dương, bao lì xì mừng cưới.</p>
+        <div class="tags"><span>Truyền thống</span><span>Đỏ – Vàng</span><span>Ấm áp</span></div>
+        <div class="swatch"><i style="background:var(--t2)"></i><i style="background:var(--t2a)"></i><i style="background:var(--t2i)"></i><i style="background:#3b1e14"></i><span class="go">Xem mẫu</span></div>
+      </div>
+    </a>
+
+    <a class="card c3" href="03-cinema/index.html">
+      <div class="shot">
+        <img src="https://images.unsplash.com/photo-1606490194859-07c18c9f0968?w=800&q=80&auto=format&fit=crop" alt="Cô dâu chú rể hôn nhau lúc hoàng hôn">
+        <span class="num">MẪU 03</span>
+        <div class="over"><div class="credit">Công chiếu 20.12.2026</div><div class="film">Chuyện Chúng Mình</div></div>
+      </div>
+      <div class="body">
+        <h2>Love, The Movie</h2>
+        <p>Buổi công chiếu bộ phim tình yêu của hai bạn: đếm ngược kiểu phim nhựa, dải phim ảnh, vé xem phim để xác nhận tham dự.</p>
+        <div class="tags"><span>Điện ảnh</span><span>Tông tối</span><span>Lãng mạn</span></div>
+        <div class="swatch"><i style="background:var(--t3)"></i><i style="background:var(--t3i)"></i><i style="background:var(--t3a)"></i><i style="background:#c98b8b"></i><span class="go">Xem mẫu</span></div>
+      </div>
+    </a>
+
+    <a class="card c4" href="04-co-phong/index.html">
+      <div class="shot">
+        <img src="https://images.unsplash.com/photo-1541250848049-b4f7141dca3f?w=800&q=80&auto=format&fit=crop" alt="Cô dâu chú rể trong rừng, chỉnh màu như tranh thủy mặc">
+        <span class="num">MẪU 04</span>
+        <div class="over"><div class="brush">良缘</div><span class="seal">TIẾN<br>TRANG</span><div class="names">Lương duyên tiền định</div></div>
+      </div>
+      <div class="body">
+        <h2>Cổ Phong · Lương Duyên</h2>
+        <p>Hôn lễ cung đình thời phong kiến: mở quyển trục hôn thư, núi non thủy mặc, cửa trăng, ấn son và thiên đăng chúc phúc.</p>
+        <div class="tags"><span>Cổ phong</span><span>Thủy mặc</span><span>Cung đình</span></div>
+        <div class="swatch"><i style="background:var(--t4)"></i><i style="background:var(--t4i)"></i><i style="background:var(--t4a)"></i><i style="background:var(--t4j)"></i><span class="go">Xem mẫu</span></div>
+      </div>
+    </a>
+
+    <a class="card c5" href="05-to-hong/index.html">
+      <div class="shot">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&q=80&auto=format&fit=crop" alt="Hai bàn tay vươn về phía nhau">
+        <span class="num">MẪU 05</span>
+        <div class="over"><div class="tn"><svg viewBox="0 0 220 110" aria-hidden="true"><path d="M98 30 C150 30 160 52 110 56 C60 60 14 58 30 80 C70 84 150 78 200 80 C236 82 226 110 196 124"/></svg>Tiến<span>Trang</span></div></div>
+      </div>
+      <div class="body">
+        <h2>Tơ Hồng</h2>
+        <p>Một sợi chỉ hồng tự khâu dọc trang khi khách cuộn: luồn qua tên hai bạn, qua từng mốc chuyện tình, khoanh ngày cưới và thắt nơ ở cuối.</p>
+        <div class="tags"><span>Hiện đại</span><span>Thủ công</span><span>Nhẹ nhàng</span></div>
+        <div class="swatch"><i style="background:var(--t5)"></i><i style="background:var(--t5i)"></i><i style="background:var(--t5a)"></i><i style="background:var(--t5j)"></i><span class="go">Xem mẫu</span></div>
+      </div>
+    </a>
+
+    <a class="card c6" href="06-thiep-nho/index.html">
+      <div class="shot">
+        <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80&auto=format&fit=crop" alt="Cô dâu chú rể cười rạng rỡ bên bó hoa">
+        <span class="num">MẪU 06</span>
+        <div class="over"><span class="seal6">T&amp;T</span><div class="names6">Tiến &amp; Trang</div></div>
+      </div>
+      <div class="body">
+        <h2>Thiệp Nhỏ</h2>
+        <p>Thiệp điện thoại như bộ thiệp giấy: phong bì dấu sáp, lịch trình tiệc, dresscode, xác nhận dạng bưu thiếp, sổ lưu bút có chữ ký tay.</p>
+        <div class="tags"><span>Điện thoại</span><span>Hồng nude</span><span>Đầy đủ</span></div>
+        <div class="swatch"><i style="background:var(--t6)"></i><i style="background:var(--t6i)"></i><i style="background:var(--t6a)"></i><i style="background:var(--t6j)"></i><span class="go">Xem mẫu</span></div>
+      </div>
+    </a>
+  </main>
+
+  <section class="note">
+    <h3>Cách chỉnh sửa nhanh</h3>
+    <ul>
+      <li>Mỗi mẫu là một file <code>index.html</code> độc lập, mở bằng trình duyệt là chạy.</li>
+      <li>Ngày giờ, tên, số tài khoản mừng cưới: sửa trong khối <code>const WEDDING = {…}</code> ở đầu phần <code>&lt;script&gt;</code>.</li>
+      <li>Ảnh: thay các đường dẫn <code>https://images.unsplash.com/…</code> bằng ảnh của hai bạn (ví dụ <code>images/anh-cuoi-1.jpg</code>).</li>
+      <li>Nhạc nền: chép file nhạc vào thư mục <code>music</code> và đặt tên <code>nhac-cuoi.mp3</code>.</li>
+    </ul>
+  </section>
+
+  <footer>Chúc hai bạn trăm năm hạnh phúc ♥</footer>
+</div>
+</body>
+</html>
