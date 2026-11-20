@@ -1,0 +1,1582 @@
+<!doctype html>
+<!--
+  ============================================================
+  MẪU 04 · CỔ PHONG · LƯƠNG DUYÊN — Hoàng Tiến & Thu Trang
+  ============================================================
+  CÁCH THAY ẢNH
+  - Mọi ảnh đang là ảnh minh họa từ Unsplash (đường dẫn bắt đầu bằng
+    https://images.unsplash.com/...). Hãy chép ảnh cưới của hai bạn vào
+    một thư mục, ví dụ "images/", rồi thay đường dẫn:
+      + Ảnh trong cổng trăng (hero): tìm  class="gate-photo"
+      + Ảnh tân lang / tân nương:    tìm  class="hs-paper"
+      + Ảnh chuyện tình:             tìm  class="ms-img"
+      + Album "Họa quyển":           sửa mảng GALLERY trong <script> (có thể
+        ghi thẳng đường dẫn file, ví dụ 'images/anh-1.jpg')
+  - Ảnh QR mừng cưới: điền đường dẫn ảnh vào WEDDING.gifts[...].qr
+
+  CÁCH THAY NHẠC
+  - Chép file nhạc vào thư mục "music" (cùng cấp với thư mục mẫu này) và đặt
+    tên "nhac-cuoi.mp3". Nếu chưa có file, nút nhạc sẽ tự ẩn.
+
+  THÔNG TIN NGÀY GIỜ, ĐỊA CHỈ, SỐ TÀI KHOẢN
+  - Sửa trong khối  const WEDDING = { ... }  ở đầu phần <script>.
+  - Gửi đường link kèm tên khách:  index.html?khach=Anh%20Nam
+    → màn hình mở thiệp sẽ hiện "Kính gửi: Anh Nam".
+-->
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lương Duyên · Hoàng Tiến & Thu Trang</title>
+<meta name="description" content="Hôn thư của Hoàng Tiến & Thu Trang — Chủ Nhật 20.12.2026, nhằm ngày 12 tháng 11 năm Bính Ngọ.">
+<meta name="theme-color" content="#efe6d2">
+<meta property="og:title" content="Lương Duyên · Hoàng Tiến & Thu Trang">
+<meta property="og:description" content="Trân trọng kính mời quý khách đến chung vui — 20.12.2026">
+<meta property="og:image" content="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=1200&h=630&q=80&auto=format&fit=crop">
+<script>document.documentElement.classList.add('js')</script>
+<!-- Font lưu ngay trong thư mục fonts/ của dự án: hiển thị đúng cả khi mở file trực tiếp, không có mạng hoặc mạng chặn Google Fonts -->
+<link rel="stylesheet" href="../fonts/04-co-phong.css">
+<style>
+@property --r{syntax:'<percentage>';inherits:false;initial-value:0%}
+:root{
+  --paper:#efe6d2; --paper2:#e6dabf; --paper3:#d9caa8;
+  --ink:#1d1a17; --ink2:#3a3530; --ink3:#6b6359; --ink4:#9a9185;
+  --red:#b3302a; --red2:#8f231e;
+  --jade:#4f7a6a; --jade2:#2f4d43; --jade3:#203830;
+  --gold:#a8843f; --gold2:#cfae6a;
+  --wood:#6e4b2f; --wood2:#3f2a19;
+  --brocade:#2a2320;
+  --night:#141620;
+  /* Hina Mincho: chữ Latin kiểu Minh triều (mincho) — nét như bản khắc gỗ Á Đông,
+     đi cùng chữ Hán trong trang. Noto Serif cho chữ thân, nhãn và nút. */
+  --serif-d:"Hina Mincho","Noto Serif",Georgia,serif;
+  --serif:"Noto Serif",Georgia,serif;
+  --sans:"Noto Serif",Georgia,serif;
+  --cn:"Ma Shan Zheng","Noto Serif SC","Songti SC","SimSun",serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .18 0 0 0 .11 0'/%3E%3C/filter%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.01 .32' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .33 0 0 0 0 .2 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E");
+  --nav-h:68px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper) var(--tex);color:var(--ink);font:400 17px/1.75 var(--serif);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3,p,figure{margin:0}
+.cn{font-family:var(--cn);font-weight:400;line-height:1.1}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+section{scroll-margin-top:var(--nav-h)}
+.sec{position:relative;padding:clamp(80px,11vw,140px) 0}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 12.5px/1.1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:14px 22px;border-radius:2px;background:var(--red);color:#f7ecd6;border:1px solid var(--red);text-decoration:none;cursor:pointer;box-shadow:inset 0 0 0 3px var(--red),inset 0 0 0 4px rgba(247,236,214,.55);transition:background .3s,color .3s,transform .3s,box-shadow .3s;white-space:nowrap}
+.btn:hover{background:var(--red2);box-shadow:inset 0 0 0 3px var(--red2),inset 0 0 0 4px rgba(247,236,214,.55);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:rgba(29,26,23,.55);box-shadow:none}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn.sm{padding:10px 14px;font-size:12px}
+.on-dark .btn.ghost{color:var(--paper);border-color:rgba(239,230,210,.55)}
+.on-dark .btn.ghost:hover{background:var(--paper);color:var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+/* ---------- Seal (ấn triện) ---------- */
+.seal{display:inline-grid;place-items:center;text-align:center;background:var(--red);color:#f6ead2;font:600 12px/1.05 var(--serif-d);letter-spacing:.06em;padding:9px 8px;border-radius:3px;box-shadow:inset 0 0 0 2px var(--red),inset 0 0 0 3.5px rgba(246,234,210,.85);filter:url(#rough)}
+.seal.cn{font-family:var(--cn);font-size:20px;letter-spacing:0;padding:6px 8px}
+
+/* ---------- Section head ---------- */
+.head{text-align:center;max-width:760px;margin:0 auto clamp(40px,6vw,64px)}
+.head-k{display:inline-flex;align-items:center;gap:12px;font:600 12.5px/1.4 var(--sans);letter-spacing:0.18em;text-transform:uppercase;color:var(--red)}
+.head-k svg{width:44px;height:20px;color:var(--gold);flex:none}
+.head-k svg.flip{transform:scaleX(-1)}
+.head-k .cn{font-size:24px;letter-spacing:.08em;color:var(--ink);text-transform:none}
+.head h2{font:500 clamp(30px,5vw,52px)/1.22 var(--serif-d);margin:14px 0 8px;padding-top:.12em;letter-spacing:-.005em}
+.head .sub{color:var(--ink3);font-style:italic;max-width:600px;margin-inline:auto}
+.brush{display:block;width:170px;height:18px;margin:20px auto 0;color:var(--ink);opacity:.85}
+.on-dark .head-k{color:var(--gold2)}
+.on-dark .head-k .cn,.on-dark .head h2{color:var(--paper)}
+.on-dark .head .sub{color:rgba(239,230,210,.72)}
+.on-dark .brush{color:var(--paper);opacity:.6}
+
+/* ---------- Reveal ---------- */
+html.js .rv{opacity:0;transform:translateY(14px);transition:opacity .65s var(--ease) min(var(--d,0s),.2s),transform .7s var(--ease) min(var(--d,0s),.2s)}
+html.js .rv.in{opacity:1;transform:none}
+
+/* ============================================================
+   INTRO · QUYỂN TRỤC
+   ============================================================ */
+.intro{display:none}
+html.js .intro{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px 16px;color:var(--paper);background:radial-gradient(ellipse at 50% 38%,#3a3029 0%,#1f1915 55%,#120f0d 100%);transition:opacity 1s ease,visibility 1s ease}
+.intro::before{content:"";position:absolute;inset:0;background:var(--tex);opacity:.5;pointer-events:none}
+.intro.gone{opacity:0;visibility:hidden}
+.intro-skip{position:absolute;top:18px;right:18px;background:none;border:0;color:var(--gold2);font:500 13px var(--sans);letter-spacing:.08em;cursor:pointer;padding:8px 10px;z-index:2}
+.intro-kicker{position:relative;font:italic 400 19px var(--serif-d);color:var(--gold2);letter-spacing:.04em;text-align:center}
+.intro-guest{position:relative;font:500 12px var(--sans);letter-spacing:0.14em;text-transform:uppercase;color:rgba(239,230,210,.75);text-align:center;margin-top:-12px}
+.intro-guest b{color:var(--paper);letter-spacing:.06em;text-transform:none;font:600 16px var(--serif-d)}
+.qt{position:relative;display:flex;flex-direction:column;align-items:center;cursor:pointer;margin:50px 0 46px;filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
+.qt-rod{position:relative;width:min(300px,78vw);height:18px;border-radius:9px;background:linear-gradient(180deg,#9a6c43 0%,#6e4b2f 45%,#3f2a19 100%);box-shadow:inset 0 1px 0 rgba(255,220,170,.35);z-index:2}
+.qt-rod::before,.qt-rod::after{content:"";position:absolute;top:50%;width:20px;height:26px;border-radius:5px;background:linear-gradient(180deg,#d8b46a,#a8843f 50%,#6d5221);transform:translateY(-50%)}
+.qt-rod::before{left:-14px}.qt-rod::after{right:-14px}
+.qt-rod.top::before{box-shadow:0 0 0 0 transparent}
+.qt-cord{position:absolute;left:50%;bottom:100%;width:110px;height:46px;transform:translateX(-50%);pointer-events:none}
+.qt-paper{position:relative;width:min(262px,68vw);height:0;overflow:hidden;background:var(--paper) var(--tex);box-shadow:inset 0 10px 14px -10px rgba(0,0,0,.35),inset 0 -10px 14px -10px rgba(0,0,0,.35),inset 10px 0 0 #2a2320,inset -10px 0 0 #2a2320;display:flex;justify-content:center;transition:height 1.7s cubic-bezier(.6,.05,.25,1) .35s}
+.intro.open .qt-paper{height:min(58vh,500px)}
+.qt-cols{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;height:100%;padding:30px 26px;color:var(--ink);text-align:center}
+.qt-col{font:500 17px/1.5 var(--serif-d);margin:0;clip-path:inset(0 100% 0 0);transition:clip-path 1s ease calc(1.5s + var(--i) * .32s)}
+.qt-col.cn{font-family:var(--cn);font-size:38px;color:var(--red);line-height:1.4}
+.qt-col.red{color:var(--red)}
+.qt-col.small{font:italic 400 14.5px/1.6 var(--serif);color:var(--ink2)}
+.intro.open .qt-col{clip-path:inset(0)}
+.qt-tie{position:absolute;top:50%;left:50%;height:120px;transform:translate(-50%,-50%);background:linear-gradient(90deg,#8f231e,#c23a31 50%,#8f231e);border-radius:2px;display:grid;place-items:center;z-index:3;box-shadow:0 8px 20px rgba(0,0,0,.4);transition:opacity .5s ease,transform .7s ease}
+.qt-tie .seal{width:64px;padding:8px 4px;flex-direction:column;gap:2px;background:#9e2620}
+.qt-tie .seal .cn{font-size:22px;line-height:1}
+.qt-tie .seal small{font:600 11.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.intro.open .qt-tie{opacity:0;transform:translate(-50%,-30%) scale(.8) rotate(-8deg);pointer-events:none}
+.intro-open{position:relative}
+.intro-hint{position:relative;font:400 12.5px var(--sans);letter-spacing:.14em;color:rgba(239,230,210,.6);margin-top:-8px;text-align:center}
+.intro.open .intro-open,.intro.open .intro-hint{opacity:0;pointer-events:none;transition:opacity .4s}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 clamp(16px,3vw,36px);transition:background .4s,box-shadow .4s}
+.nav.solid{background:rgba(239,230,210,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(29,26,23,.1)}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap}
+.brand .cn{font-size:28px;color:var(--red);line-height:1}
+.brand span:last-child{font:500 18px var(--serif-d);letter-spacing:.04em}
+.links{display:flex;gap:clamp(16px,2vw,28px)}
+.links a{position:relative;font:500 13px var(--sans);letter-spacing:.08em;text-decoration:none;white-space:nowrap;padding:6px 0;color:var(--ink2)}
+.links a::after{content:"";position:absolute;left:50%;bottom:0;width:5px;height:5px;background:var(--red);transform:translate(-50%,4px) rotate(45deg) scale(0);transition:transform .35s var(--ease)}
+.links a:hover,.links a.active{color:var(--ink)}
+.links a.active::after,.links a:hover::after{transform:translate(-50%,4px) rotate(45deg) scale(1)}
+.menu-btn{display:none;align-items:center;gap:10px;background:none;border:1px solid rgba(29,26,23,.35);border-radius:2px;padding:9px 12px;cursor:pointer;font:600 12.5px var(--sans);letter-spacing:0.14em;text-transform:uppercase;white-space:nowrap}
+.menu-btn i{display:grid;gap:4px;width:16px}
+.menu-btn i::before,.menu-btn i::after{content:"";height:1.5px;background:currentColor}
+@media (max-width:1080px){.links{display:none}.menu-btn{display:inline-flex}}
+.menu{position:fixed;inset:0;z-index:60;background:var(--paper) var(--tex);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:80px 16px 40px;overflow-y:auto}
+.menu[hidden]{display:none}
+.menu a{display:flex;align-items:baseline;gap:14px;font:500 clamp(24px,6vw,34px)/1.5 var(--serif-d);text-decoration:none;padding:4px 0}
+.menu a .cn{font-size:.8em;color:var(--red);width:1.6em;text-align:right}
+.menu-x{position:absolute;top:14px;right:16px;width:44px;height:44px;border:0;background:none;font-size:30px;cursor:pointer}
+.menu-foot{margin-top:24px;font:italic 15px var(--serif);color:var(--ink3)}
+
+/* Side seal index */
+.seal-index{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column;gap:8px}
+@media (min-width:1300px){.seal-index{display:flex}}
+.seal-index a{position:relative;display:grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--red);border-radius:3px;color:var(--red);text-decoration:none;font-family:var(--cn);font-size:17px;line-height:1;background:rgba(239,230,210,.7);transition:background .3s,color .3s,transform .3s}
+.seal-index a:hover{transform:scale(1.08)}
+.seal-index a.active{background:var(--red);color:var(--paper)}
+.seal-index a::after{content:attr(data-label);position:absolute;right:calc(100% + 10px);top:50%;transform:translate(6px,-50%);opacity:0;pointer-events:none;white-space:nowrap;font:500 12px var(--sans);letter-spacing:.06em;color:var(--ink);background:var(--paper);padding:4px 8px;border-radius:2px;box-shadow:0 4px 14px rgba(0,0,0,.12);transition:opacity .25s,transform .25s}
+.seal-index a:hover::after,.seal-index a:focus-visible::after{opacity:1;transform:translate(0,-50%)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:calc(var(--nav-h) + 18px) 0 70px;background:linear-gradient(180deg,#e8ddc6 0%,#efe6d2 55%,#e9dec7 100%)}
+.hero-sky{position:absolute;inset:0;pointer-events:none}
+.moon{position:absolute;top:13%;right:12%;width:clamp(90px,13vw,170px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 42% 40%,#fbf6ea 0%,#f3e9d2 52%,rgba(239,230,210,0) 71%);box-shadow:0 0 80px 30px rgba(251,246,234,.45)}
+.mtn{position:absolute;left:0;bottom:0;width:100%;height:68%;will-change:transform}
+.mtn.m1{filter:blur(3px);opacity:.16}
+.mtn.m2{filter:blur(1.6px);opacity:.24}
+.mtn.m3{filter:blur(.8px);opacity:.34}
+.mtn.m4{opacity:.5;height:42%}
+.mist{position:absolute;left:-20%;width:140%;height:120px;background:radial-gradient(ellipse at center,rgba(239,230,210,.9) 0%,rgba(239,230,210,.55) 40%,rgba(239,230,210,0) 70%);animation:drift 38s ease-in-out infinite alternate}
+.mist1{bottom:30%}.mist2{bottom:14%;animation-duration:52s;animation-direction:alternate-reverse;opacity:.85}.mist3{bottom:-2%;height:160px;animation-duration:44s}
+@keyframes drift{from{transform:translateX(-7%)}to{transform:translateX(7%)}}
+.petals{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.hero-in{position:relative;z-index:2;text-align:center;width:min(1000px,100% - 32px)}
+.hero-kicker{display:inline-flex;align-items:center;gap:12px;font:600 12.5px var(--sans);letter-spacing:0.19em;text-transform:uppercase;color:var(--ink2);margin-bottom:22px}
+.hero-kicker .cn{font-size:24px;letter-spacing:.06em;color:var(--red);text-transform:none}
+.hero-stage{display:flex;align-items:center;justify-content:center;gap:clamp(10px,3vw,44px)}
+.couplet{position:relative;writing-mode:vertical-rl;display:flex;align-items:center;gap:14px;padding:22px 9px 26px;background:linear-gradient(90deg,#9a2620,#b8352c 50%,#9a2620);color:#f1d79c;border-radius:2px;box-shadow:0 18px 30px -16px rgba(80,20,10,.6),inset 0 0 0 2px rgba(241,215,156,.35)}
+.couplet::before,.couplet::after{content:"";position:absolute;left:-6px;right:-6px;height:9px;border-radius:5px;background:linear-gradient(180deg,#9a6c43,#4a311e)}
+.couplet::before{top:-5px}.couplet::after{bottom:-5px}
+.couplet .cn{font-size:clamp(24px,3.1vw,42px);letter-spacing:0.14em;text-shadow:0 1px 0 rgba(0,0,0,.25)}
+/* Phiên âm tiếng Việt đặt ngang dưới câu đối, không xoay chữ */
+.couplet small{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%);writing-mode:horizontal-tb;white-space:nowrap;font:italic 400 13px/1 var(--serif);letter-spacing:.02em;color:var(--ink2)}
+.couplet:not(.right) small{left:auto;right:-6px;transform:none}
+.couplet.right small{left:-6px;transform:none}
+.gate{--g:min(clamp(230px,32vw,400px),48vh);position:relative;width:var(--g);height:var(--g);flex:none;border-radius:50%;background:var(--paper2);box-shadow:0 0 0 3px var(--gold),0 0 0 10px rgba(239,230,210,.92),0 0 0 11px rgba(168,132,63,.55),0 40px 70px -26px rgba(29,26,23,.55)}
+.gate::before{content:"";position:absolute;inset:-46px;border-radius:50%;background:radial-gradient(circle,rgba(29,26,23,.1) 52%,rgba(29,26,23,0) 70%);z-index:-1}
+.gate-ring{position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from 3deg,#6b5039 0deg 2.4deg,#e6dabf 2.4deg 7.5deg);-webkit-mask:radial-gradient(circle closest-side,transparent calc(100% - 22px),#000 calc(100% - 21px) calc(100% - 3px),transparent calc(100% - 2px));mask:radial-gradient(circle closest-side,transparent calc(100% - 22px),#000 calc(100% - 21px) calc(100% - 3px),transparent calc(100% - 2px))}
+.gate-photo{position:absolute;inset:22px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--gold),inset 0 0 30px rgba(0,0,0,.25)}
+.gate-photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 7s var(--ease)}
+html.opened .gate-photo img{transform:scale(1)}
+.hero-seal{position:absolute;right:-4%;bottom:6%;width:62px;height:62px;font-size:13px;line-height:1.08;z-index:3}
+.names{margin-top:clamp(26px,4vh,40px);font:500 clamp(38px,6.6vw,86px)/1.22 var(--serif-d);letter-spacing:-.01em;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:.32em;padding-top:.08em}
+.names .dot{font-style:normal;color:var(--red);font-size:.7em}
+@media (max-width:520px){.names{flex-direction:column;align-items:center}.names .dot{line-height:.6}}
+.readings{display:none;font:500 12.5px/1.7 var(--sans);letter-spacing:.12em;color:var(--ink3);margin-top:10px}
+.hero-date{margin-top:14px;font:500 clamp(15px,1.8vw,19px) var(--sans);letter-spacing:0.17em;text-transform:uppercase}
+.hero-lunar{font:italic 400 16px var(--serif);color:var(--ink3);margin-top:2px}
+.cue{position:absolute;left:50%;bottom:22px;z-index:2;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;font:600 11.5px var(--sans);letter-spacing:0.19em;text-transform:uppercase;text-decoration:none;color:var(--ink3)}
+.cue i{width:1px;height:34px;background:linear-gradient(var(--ink3),transparent);animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* Hero entrance (after the scroll opens) */
+html.js .hero .fx{opacity:0;transform:translateY(18px)}
+html.opened .hero .fx{opacity:1;transform:none;transition:opacity 1.2s var(--ease) var(--d,0s),transform 1.2s var(--ease) var(--d,0s)}
+html.js .couplet{transform:scaleY(0);transform-origin:top}
+html.opened .couplet{transform:scaleY(1);transition:transform 1.4s cubic-bezier(.6,.05,.25,1) .5s}
+html.js .hero-seal{opacity:0;transform:scale(2.3) rotate(-20deg)}
+html.opened .hero-seal{animation:stamp .65s cubic-bezier(.3,1.5,.5,1) 1.9s forwards}
+@keyframes stamp{0%{opacity:0;transform:scale(2.3) rotate(-20deg)}70%{opacity:1;transform:scale(.92) rotate(-5deg)}100%{opacity:.95;transform:scale(1) rotate(-6deg)}}
+@media (max-width:760px){
+  .couplet{padding:16px 6px 18px}
+  .couplet small{display:none}
+  .couplet .cn{font-size:22px;letter-spacing:0.14em}
+  .gate{--g:min(60vw,44vh)}
+  .gate-ring{-webkit-mask:radial-gradient(circle closest-side,transparent calc(100% - 15px),#000 calc(100% - 14px) calc(100% - 2px),transparent calc(100% - 1px));mask:radial-gradient(circle closest-side,transparent calc(100% - 15px),#000 calc(100% - 14px) calc(100% - 2px),transparent calc(100% - 1px))}
+  .gate-photo{inset:15px}
+  .hero-seal{width:50px;height:50px;font-size:12px;right:-8%}
+  .readings{display:block}
+  .hero-date{letter-spacing:0.14em}
+  .cue{display:none}
+  .moon{top:9%;right:6%}
+}
+
+/* ============================================================
+   HÔN THƯ
+   ============================================================ */
+.letter{position:relative;max-width:940px;margin-inline:auto;padding:14px;background:linear-gradient(135deg,#7a5a3a,#3f2a19);border-radius:3px;box-shadow:0 40px 60px -40px rgba(29,26,23,.6)}
+.letter-in{position:relative;background:#f3ebda var(--tex);padding:clamp(28px,5vw,60px) clamp(20px,5vw,64px);box-shadow:inset 0 0 0 1px rgba(168,132,63,.6),inset 0 0 0 7px #f3ebda,inset 0 0 0 8px rgba(168,132,63,.45);display:flex;gap:clamp(24px,4vw,48px);justify-content:center;align-items:stretch}
+.letter-title{writing-mode:vertical-rl;font-family:var(--cn);font-size:60px;color:var(--red);line-height:1;letter-spacing:0.14em;padding-left:10px;border-left:1px solid rgba(168,132,63,.5)}
+/* Chữ Hán (婚书) giữ dạng dọc; chữ Việt viết ngang để đọc thẳng, không bị xoay nghiêng */
+.letter-body{flex:1;align-self:center;max-width:520px;text-align:center;font:400 18.5px/2 var(--serif);color:var(--ink)}
+.letter-body p{margin:0 0 4px}
+.letter-body em{font-style:normal;color:var(--red);font-weight:600;white-space:nowrap}
+.letter-sign{display:flex;flex-direction:column;justify-content:center;gap:32px;padding-left:clamp(20px,3vw,36px);border-left:1px solid rgba(168,132,63,.5)}
+.sig{display:flex;align-items:center;gap:12px;font:400 14px/1.7 var(--serif);color:var(--ink2)}
+.sig b{font:600 15px var(--serif-d);color:var(--ink)}
+.sig .seal{writing-mode:horizontal-tb;width:52px;height:52px;font-size:12px}
+.letter-hint{text-align:center;margin-top:16px;font:italic 14px var(--serif);color:var(--ink3)}
+@media (max-width:820px){
+  .letter-in{flex-direction:column;align-items:center;text-align:center}
+  .letter-title{writing-mode:horizontal-tb;font-size:44px;border:0;padding:0;letter-spacing:0.14em}
+  .letter-body{font-size:17px;line-height:1.9}
+  .letter-sign{flex-direction:row;border:0;padding:20px 0 0;border-top:1px solid rgba(168,132,63,.5);flex-wrap:wrap;justify-content:center;gap:24px 36px;width:100%}
+  .sig{flex-direction:column;gap:8px}
+  .letter-hint{display:none}
+}
+
+/* ============================================================
+   CÁT THỜI (countdown)
+   ============================================================ */
+.sec-jade{background:radial-gradient(ellipse at 50% 0%,#3a5f53 0%,var(--jade2) 45%,var(--jade3) 100%);color:var(--paper)}
+.sec-jade::before{content:"";position:absolute;inset:0;background:var(--tex);opacity:.35;pointer-events:none}
+.sec-jade .wrap{position:relative}
+.plaque-cd{position:relative;max-width:760px;margin:0 auto;padding:12px;border-radius:6px;background:linear-gradient(180deg,#8a6040,#5a3c24 60%,#3f2a19);box-shadow:0 30px 50px -30px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,220,170,.3)}
+.plaque-cd::before,.plaque-cd::after{content:"";position:absolute;top:-34px;width:1.5px;height:34px;background:linear-gradient(var(--gold2),#6d5221)}
+.plaque-cd::before{left:22%}.plaque-cd::after{right:22%}
+.cd-panel{position:relative;border-radius:3px;background:linear-gradient(160deg,#4f7a6a,#2f4d43 70%);box-shadow:inset 0 0 0 1px rgba(207,174,106,.7),inset 0 0 0 6px rgba(47,77,67,1),inset 0 0 0 7px rgba(207,174,106,.4),inset 0 10px 30px rgba(0,0,0,.25);padding:clamp(22px,4vw,38px) clamp(10px,3vw,30px)}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(6px,2vw,18px)}
+.cd-cell{text-align:center;position:relative}
+.cd-cell+.cd-cell::before{content:"";position:absolute;left:calc(-1 * clamp(3px,1vw,9px));top:12%;bottom:22%;width:1px;background:rgba(207,174,106,.4)}
+.cd-cell b{display:block;font:500 clamp(36px,7vw,68px)/1.1 var(--serif-d);color:#f4ead2;font-variant-numeric:lining-nums tabular-nums;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+.cd-cell span{display:block;margin-top:6px;font:600 clamp(10.5px,1.4vw,12.5px)/1.3 var(--sans);letter-spacing:0.14em;text-transform:uppercase;color:var(--gold2)}
+.cd-cell small{display:block;font:italic 400 12.5px var(--serif);color:rgba(244,234,210,.65)}
+.cd-done{display:none;text-align:center;font:500 clamp(28px,5vw,44px)/1.3 var(--serif-d);color:#f4ead2;padding:10px 0}
+.plaque-cd.done .cd{display:none}.plaque-cd.done .cd-done{display:block}
+.cd-note{text-align:center;margin:30px auto 24px;max-width:600px;color:rgba(239,230,210,.85)}
+.cd-note b{color:var(--paper)}
+.sec-jade .head-k{color:var(--gold2)}
+
+/* ============================================================
+   TÂN NHÂN
+   ============================================================ */
+.pair{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:clamp(20px,4vw,60px);max-width:1000px;margin-inline:auto}
+.person{text-align:center}
+.hs{position:relative;width:min(330px,100%);margin:44px auto 26px;padding:0 8px}
+.hs::before{content:"";position:absolute;left:50%;top:-40px;width:90px;height:40px;transform:translateX(-50%);background:linear-gradient(to bottom right,transparent calc(50% - 1px),#6d5221 50%,transparent calc(50% + 1px)) left/50% 100% no-repeat,linear-gradient(to bottom left,transparent calc(50% - 1px),#6d5221 50%,transparent calc(50% + 1px)) right/50% 100% no-repeat}
+.hs::after{content:"";position:absolute;left:50%;top:-46px;width:9px;height:9px;border-radius:50%;background:var(--gold);transform:translateX(-50%)}
+.hs-rod{position:relative;display:block;height:14px;margin:0 -16px;border-radius:7px;background:linear-gradient(180deg,#9a6c43,#6e4b2f 50%,#3f2a19);z-index:1}
+.hs-rod::before,.hs-rod::after{content:"";position:absolute;top:50%;width:14px;height:20px;border-radius:4px;background:linear-gradient(180deg,#d8b46a,#a8843f 50%,#6d5221);transform:translateY(-50%)}
+.hs-rod::before{left:-8px}.hs-rod::after{right:-8px}
+.hs-brocade{padding:16px 13px 40px;background-color:var(--brocade);background-image:repeating-linear-gradient(45deg,rgba(168,132,63,.16) 0 1.5px,transparent 1.5px 11px),repeating-linear-gradient(-45deg,rgba(168,132,63,.16) 0 1.5px,transparent 1.5px 11px);box-shadow:inset 0 0 0 1px rgba(168,132,63,.35)}
+.hs-paper{background:#f1e8d4;padding:10px;box-shadow:inset 0 0 0 1px rgba(168,132,63,.5)}
+.hs-paper img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:sepia(.18) saturate(.92)}
+.p-cn{font-size:30px;color:var(--red)}
+.p-role{font:600 12.5px var(--sans);letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
+.person h3{font:500 clamp(36px,4.6vw,54px)/1.25 var(--serif-d);margin:6px 0 10px;padding-top:.1em}
+.p-fam{font-size:15px;color:var(--ink2)}
+.p-fam b{font-weight:600}
+.p-desc{margin:12px auto 0;max-width:340px;font-style:italic;color:var(--ink3);font-size:16px}
+.pair-mid{align-self:center;display:grid;justify-items:center;gap:10px;padding-top:40px}
+.pair-mid .cn{font-size:clamp(70px,9vw,110px);color:var(--red);line-height:1}
+.pair-mid small{max-width:6.5em;text-align:center;font:500 12px/1.8 var(--sans);letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3)}
+@media (max-width:820px){
+  .pair{grid-template-columns:1fr;gap:10px}
+  .pair-mid{padding:0;grid-auto-flow:column;align-items:center}
+  .pair-mid small{writing-mode:horizontal-tb}
+  .pair-mid .cn{font-size:64px}
+}
+
+/* ============================================================
+   LƯƠNG DUYÊN KÝ (horizontal hand-scroll)
+   ============================================================ */
+.ld{position:relative;background:linear-gradient(180deg,var(--paper) 0%,#e9dec7 50%,var(--paper) 100%)}
+.ld-sticky{position:relative}
+.ld-track{position:relative;display:grid;gap:44px;max-width:640px;margin-inline:auto;padding:clamp(80px,11vw,130px) 16px clamp(80px,11vw,130px) 64px}
+.ld-path{display:none;position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
+.ld-path .wash{fill:none;stroke:rgba(29,26,23,.08);stroke-width:18;stroke-linecap:round;filter:blur(3px)}
+.ld-path .stroke{fill:none;stroke:var(--ink);stroke-width:3.2;stroke-linecap:round;filter:url(#inkedge)}
+.ld-vline{position:absolute;left:30px;top:clamp(80px,11vw,130px);bottom:clamp(80px,11vw,130px);width:2px;background:rgba(29,26,23,.12)}
+.ld-vline span{position:absolute;inset:0;background:var(--ink);transform-origin:top;transform:scaleY(0)}
+.ld-intro .head{text-align:left;margin:0}
+.ld-intro .head .brush{margin-left:0}
+.ld-hint{margin-top:22px;font:600 12.5px var(--sans);letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);display:none}
+.ms{position:relative}
+.ms-dot{position:absolute;left:-50px;top:4px;width:38px;height:38px;font-size:20px;padding:0;z-index:2}
+.ms-img{position:relative;margin-bottom:16px}
+.ms-img img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(.85) sepia(.3) contrast(1.05);-webkit-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 55%,transparent 100%);mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 55%,transparent 100%);transition:filter .8s ease}
+.ms:hover .ms-img img{filter:grayscale(.1) sepia(.15)}
+.ms-date{font:600 12.5px var(--sans);letter-spacing:0.16em;text-transform:uppercase;color:var(--red)}
+.ms h3{font:500 clamp(24px,2.6vw,30px)/1.3 var(--serif-d);margin:6px 0 8px;padding-top:.08em}
+.ms h3 small{display:block;font:italic 400 15px var(--serif);color:var(--ink3);margin-bottom:2px}
+.ms-poem{font-style:italic;color:var(--ink2);font-size:16.5px;line-height:1.85}
+.ld-end{font:italic 400 20px/1.6 var(--serif-d);color:var(--ink2)}
+.ld-end b{display:block;font-style:normal;font-weight:500;font-size:28px;color:var(--ink)}
+.ld-progress{display:none}
+/* pinned (desktop) */
+.ld.pin{height:var(--ldh,300vh)}
+.ld.pin .ld-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
+.ld.pin .ld-track{display:flex;align-items:center;gap:clamp(60px,6vw,96px);max-width:none;width:max-content;height:100%;margin:0;padding:0 10vw;will-change:transform}
+.ld.pin .ld-path{display:block}
+.ld.pin .ld-vline{display:none}
+.ld.pin .ld-intro{width:min(440px,36vw);flex:none}
+.ld.pin .ld-hint{display:block}
+.ld.pin .ms{width:clamp(270px,22vw,330px);flex:none;transform:translateY(var(--off,0))}
+.ld.pin .ms-dot{left:50%;top:-56px;transform:translateX(-50%)}
+.ld.pin .ld-end{width:300px;flex:none}
+.ld.pin .ld-progress{display:block;position:absolute;left:10vw;right:10vw;bottom:34px;height:1px;background:rgba(29,26,23,.15)}
+.ld.pin .ld-progress span{position:absolute;inset:0;background:var(--red);transform-origin:left;transform:scaleX(0)}
+
+/* ============================================================
+   LỄ NGHI
+   ============================================================ */
+.plaques{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,34px);align-items:start}
+.plaque{position:relative;padding-top:46px}
+.pl-cord{position:absolute;top:0;left:50%;width:90px;height:46px;transform:translateX(-50%);background:linear-gradient(to bottom right,transparent calc(50% - 1px),#6d5221 50%,transparent calc(50% + 1px)) left/50% 100% no-repeat,linear-gradient(to bottom left,transparent calc(50% - 1px),#6d5221 50%,transparent calc(50% + 1px)) right/50% 100% no-repeat}
+.pl-cord::before{content:"";position:absolute;left:50%;top:-5px;width:10px;height:10px;border-radius:50%;background:var(--gold);transform:translateX(-50%)}
+.pl-board{position:relative;padding:11px;border-radius:4px;background:linear-gradient(180deg,#8a6040,#5a3c24 70%,#3f2a19);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 1px,transparent 1px 7px),linear-gradient(180deg,#8a6040,#5a3c24 70%,#3f2a19);box-shadow:0 26px 40px -26px rgba(29,26,23,.7)}
+.pl-paper{position:relative;background:#f3ebda var(--tex);padding:28px 22px 24px;text-align:center;box-shadow:inset 0 0 0 1px rgba(168,132,63,.55),inset 0 0 0 6px #f3ebda,inset 0 0 0 7px rgba(168,132,63,.35)}
+.pl-cn{font-size:34px;color:var(--red)}
+.pl-side{font:600 12px var(--sans);letter-spacing:0.18em;text-transform:uppercase;color:var(--jade);margin-top:4px}
+.plaque h3{font:500 clamp(26px,2.6vw,32px)/1.3 var(--serif-d);margin:4px 0 10px;padding-top:.08em}
+.pl-time{font:500 46px/1 var(--serif-d);letter-spacing:.02em}
+.pl-date{font:500 14px var(--sans);letter-spacing:.06em;margin-top:8px}
+.pl-lunar{font:italic 14.5px var(--serif);color:var(--ink3)}
+.pl-rule{width:60px;height:1px;background:var(--gold);margin:16px auto}
+.pl-place{font:600 17px var(--serif-d)}
+.pl-addr{font-size:14.5px;color:var(--ink2);line-height:1.6;min-height:3.2em}
+.pl-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.plaque.main .pl-board{background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 1px,transparent 1px 7px),linear-gradient(180deg,#a7372e,#7d221c 70%,#5a1813)}
+.pl-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font:600 12px var(--sans);letter-spacing:0.14em;text-transform:uppercase;background:var(--red);color:var(--paper);padding:5px 12px;border-radius:2px;white-space:nowrap;z-index:2}
+.pl-tassel{position:absolute;left:50%;bottom:-54px;width:14px;height:56px;transform:translateX(-50%);background:linear-gradient(90deg,#8f231e,#c23a31,#8f231e);clip-path:polygon(35% 0,65% 0,65% 22%,100% 30%,100% 100%,0 100%,0 30%,35% 22%);opacity:.95}
+.plaque.main{margin-bottom:40px}
+.map-card{margin-top:clamp(40px,6vw,70px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:0;border-radius:4px;overflow:hidden;background:var(--brocade);background-image:repeating-linear-gradient(45deg,rgba(168,132,63,.14) 0 1.5px,transparent 1.5px 11px),repeating-linear-gradient(-45deg,rgba(168,132,63,.14) 0 1.5px,transparent 1.5px 11px);padding:10px;gap:10px}
+.map-info{background:#f3ebda var(--tex);padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;justify-content:center;gap:8px}
+.map-info .k{font:600 12px var(--sans);letter-spacing:0.18em;text-transform:uppercase;color:var(--red)}
+.map-info h3{font:500 28px/1.3 var(--serif-d);padding-top:.08em}
+.map-info p{color:var(--ink2);font-size:15.5px}
+.map-info .btns{justify-content:flex-start;margin-top:10px}
+.map-frame{position:relative;min-height:340px;background:#d9caa8}
+.map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:sepia(.35) saturate(.8) contrast(.95)}
+@media (max-width:900px){.plaques{grid-template-columns:1fr;max-width:440px;margin-inline:auto}.map-card{grid-template-columns:1fr}.map-frame{min-height:280px}}
+
+/* ============================================================
+   HỌA QUYỂN (gallery)
+   ============================================================ */
+.gallery{columns:3 240px;column-gap:clamp(14px,2vw,26px)}
+.art{display:block;width:100%;margin:0 0 clamp(18px,2.4vw,30px);padding:0;border:0;background:none;cursor:zoom-in;text-align:center;break-inside:avoid}
+.art-mount{position:relative;display:block;padding:12px 10px 0;background:#f1e8d4;box-shadow:0 18px 30px -22px rgba(29,26,23,.6),inset 0 0 0 1px rgba(168,132,63,.4)}
+.art-mount::before,.art-mount::after{content:"";position:absolute;left:-7px;right:-7px;height:9px;border-radius:5px;background:linear-gradient(180deg,#9a6c43,#4a311e)}
+.art-mount::before{top:-5px}.art-mount::after{bottom:-5px}
+.art-img{position:relative;display:block;overflow:hidden}
+.art-img img{width:100%;height:auto}
+.art-img .mono{filter:grayscale(.92) sepia(.32) contrast(1.05) brightness(1.02)}
+.art-img .color{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;-webkit-mask:radial-gradient(circle at 50% 55%,#000 var(--r),transparent calc(var(--r) + 22%));mask:radial-gradient(circle at 50% 55%,#000 var(--r),transparent calc(var(--r) + 22%));transition:--r 1.1s cubic-bezier(.4,.1,.2,1)}
+@media (hover:hover){.art:hover .color,.art:focus-visible .color{--r:150%}}
+@media (hover:none){.art.in .color{--r:150%;transition-delay:.5s}}
+.art-cap{display:block;padding:10px 4px 14px;font:italic 400 15px var(--serif);color:var(--ink2)}
+.art-cap b{font:600 12px var(--sans);font-style:normal;letter-spacing:0.14em;color:var(--red);margin-right:6px}
+@media (max-width:640px){.gallery{column-count:2;column-gap:12px}.art-mount{padding:8px 7px 0}.art-cap{font-size:13px;padding:8px 2px 10px}}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:90;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;padding:56px 18px 30px;background:rgba(20,16,13,.94)}
+.lb[hidden]{display:none}
+.lb-fig{display:grid;justify-items:center;gap:14px;max-height:100%;min-width:0}
+.lb-frame{padding:14px;background:var(--brocade);background-image:repeating-linear-gradient(45deg,rgba(168,132,63,.2) 0 1.5px,transparent 1.5px 11px),repeating-linear-gradient(-45deg,rgba(168,132,63,.2) 0 1.5px,transparent 1.5px 11px);box-shadow:inset 0 0 0 1px rgba(207,174,106,.6),0 30px 60px rgba(0,0,0,.6);max-width:100%}
+.lb-frame img{max-width:min(1100px,100%);max-height:calc(100vh - 190px);max-height:calc(100svh - 190px);width:auto;height:auto;box-shadow:0 0 0 2px #f1e8d4}
+.lb figcaption{display:flex;gap:16px;align-items:baseline;color:var(--paper);font:italic 17px var(--serif)}
+.lb figcaption span:last-child{font:600 12px var(--sans);font-style:normal;letter-spacing:0.14em;color:var(--gold2)}
+.lb button{background:none;border:1px solid rgba(239,230,210,.35);color:var(--paper);width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:24px;line-height:1;display:grid;place-items:center;transition:background .3s}
+.lb button:hover{background:rgba(239,230,210,.12)}
+.lb-x{position:absolute;top:12px;right:14px}
+@media (max-width:640px){.lb{grid-template-columns:1fr;padding:60px 10px 90px}.lb-prev,.lb-next{position:absolute;bottom:22px}.lb-prev{left:calc(50% - 60px)}.lb-next{right:calc(50% - 60px)}.lb-frame{padding:8px}}
+
+/* ============================================================
+   HỒI THIẾP (RSVP)
+   ============================================================ */
+.fold{position:relative;max-width:980px;margin-inline:auto;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);background:#f3ebda var(--tex);box-shadow:0 40px 60px -40px rgba(29,26,23,.65),inset 0 0 0 1px rgba(168,132,63,.5)}
+.fold::before{content:"";position:absolute;top:0;bottom:0;left:40%;width:40px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.07) 48%,rgba(255,255,255,.4) 52%,rgba(0,0,0,0));pointer-events:none}
+.fold-l{padding:clamp(30px,4vw,54px);border-right:1px dashed rgba(168,132,63,.5);display:flex;flex-direction:column;gap:14px;justify-content:center;background:linear-gradient(160deg,rgba(179,48,42,.06),transparent 60%)}
+.fold-l .cn{font-size:64px;color:var(--red)}
+.fold-t{font:500 34px/1.2 var(--serif-d);padding-top:.08em}
+.fold-l p{color:var(--ink2)}
+.fold-sig{font-style:italic;color:var(--ink3)!important}
+.fold-r{padding:clamp(26px,4vw,50px)}
+.field{margin:0 0 18px;border:0;padding:0;min-width:0}
+.field label,.field legend{display:block;font:600 12.5px var(--sans);letter-spacing:0.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:8px;padding:0}
+.field input,.field select,.field textarea{width:100%;font:400 16px var(--serif);color:var(--ink);background:rgba(255,253,247,.7);border:0;border-bottom:1.5px solid rgba(29,26,23,.35);border-radius:0;padding:10px 4px;transition:border-color .3s,background .3s;-webkit-appearance:none;appearance:none}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 14px) 52%,calc(100% - 9px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:28px}
+.field textarea{resize:vertical;min-height:84px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red);background:#fffdf7}
+.field.bad input,.field.bad select,.field.bad textarea{border-color:var(--red)}
+.err{color:var(--red);font:500 13px var(--sans);margin-top:6px;min-height:0}
+.err:empty{display:none}
+.row2{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.choices{display:flex;flex-wrap:wrap;gap:10px}
+.choice{position:relative;cursor:pointer}
+.choice input{position:absolute;opacity:0;width:1px;height:1px}
+.choice span{display:inline-block;padding:10px 16px;border:1px solid rgba(29,26,23,.35);border-radius:2px;font:500 14px var(--sans);transition:all .25s}
+.choice input:checked+span{background:var(--red);border-color:var(--red);color:var(--paper)}
+.choice input:focus-visible+span{outline:2px solid var(--red);outline-offset:2px}
+.form-note{margin-top:12px;font:400 13px var(--sans);color:var(--ink3)}
+.rsvp-done{text-align:center;display:grid;gap:14px;justify-items:center;padding:30px 0}
+.rsvp-done[hidden]{display:none}
+.done-t{font:500 clamp(24px,3vw,32px)/1.35 var(--serif-d);padding-top:.08em}
+.done-t b{color:var(--red);font-weight:600}
+.rsvp-done p:not(.done-t){color:var(--ink2);max-width:420px}
+.stamp{position:absolute;right:6%;bottom:8%;opacity:0;pointer-events:none;z-index:3}
+.stamp .seal{width:96px;height:96px;font-size:17px;line-height:1.15}
+.fold.stamped .stamp{animation:thump .6s cubic-bezier(.3,1.6,.5,1) forwards}
+.fold.stamped{animation:shake .4s ease .32s}
+@keyframes thump{0%{opacity:0;transform:scale(2.6) rotate(-18deg)}60%{opacity:1;transform:scale(.9) rotate(-9deg)}100%{opacity:.93;transform:scale(1) rotate(-9deg)}}
+@keyframes shake{0%,100%{transform:none}25%{transform:translate(-2px,1px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,1px)}}
+@media (max-width:820px){.fold{grid-template-columns:1fr}.fold::before{display:none}.fold-l{border-right:0;border-bottom:1px dashed rgba(168,132,63,.5);text-align:center;align-items:center}.row2{grid-template-columns:1fr;gap:0}.stamp{right:5%;bottom:3%}.stamp .seal{width:76px;height:76px;font-size:14px}}
+
+/* ============================================================
+   THIÊN ĐĂNG CHÚC PHÚC (guestbook)
+   ============================================================ */
+.night{background:linear-gradient(180deg,#121420 0%,#1b1b28 45%,#2a221d 100%);color:var(--paper);overflow:hidden}
+.night::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.7;background-image:radial-gradient(1.2px 1.2px at 12% 18%,#fff,transparent),radial-gradient(1px 1px at 28% 8%,#fff,transparent),radial-gradient(1.4px 1.4px at 46% 22%,#ffe9c4,transparent),radial-gradient(1px 1px at 64% 12%,#fff,transparent),radial-gradient(1.2px 1.2px at 82% 26%,#fff,transparent),radial-gradient(1px 1px at 92% 6%,#ffe9c4,transparent),radial-gradient(1px 1px at 6% 40%,#fff,transparent),radial-gradient(1.3px 1.3px at 74% 44%,#fff,transparent),radial-gradient(1px 1px at 36% 36%,#fff,transparent)}
+.night .wrap{position:relative}
+.sky-stage{position:relative;height:clamp(300px,40vw,420px);margin:-10px 0 34px}
+.lantern{position:absolute;left:var(--x);top:var(--y);transform:translateX(-50%);pointer-events:auto}
+.ln-float{display:block;animation:float var(--t,6s) ease-in-out var(--dl,0s) infinite alternate}
+@keyframes float{from{transform:translateY(0) rotate(-2.5deg)}to{transform:translateY(-16px) rotate(2.5deg)}}
+.ln-body{position:relative;display:grid;place-items:center;width:calc(56px * var(--s,1));height:calc(72px * var(--s,1));border-radius:42% 42% 32% 32% / 48% 48% 24% 24%;background:radial-gradient(ellipse at 50% 72%,#fff2c2 0%,#f7b45a 32%,#cf5a2e 72%,#8e2a1c 100%);box-shadow:0 0 26px 6px rgba(255,170,80,.35),0 0 70px 24px rgba(255,140,60,.12)}
+.ln-body::before{content:"";position:absolute;left:50%;top:6%;bottom:14%;width:1px;background:rgba(120,40,20,.25);box-shadow:-12px 0 0 rgba(120,40,20,.18),12px 0 0 rgba(120,40,20,.18)}
+.ln-body::after{content:"";position:absolute;left:50%;bottom:-3px;width:40%;height:7px;border-radius:50%;transform:translateX(-50%);background:#ffd88a;box-shadow:0 0 12px 4px rgba(255,200,110,.7)}
+.ln-name{position:relative;font:600 calc(10px * var(--s,1))/1.15 var(--sans);color:#5a1d10;max-width:85%;text-align:center;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word}
+.ln-tip{position:absolute;left:50%;bottom:calc(100% + 10px);transform:translate(-50%,6px);width:max-content;max-width:220px;padding:10px 12px;background:rgba(243,235,218,.97);color:var(--ink);font:italic 14px/1.5 var(--serif);border-radius:3px;box-shadow:0 10px 30px rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:5}
+.lantern:hover .ln-tip{opacity:1;transform:translate(-50%,0)}
+.lantern.rise{animation:rise 4s cubic-bezier(.2,.6,.3,1) both}
+@keyframes rise{0%{opacity:0;transform:translate(-50%,420px) scale(.55)}18%{opacity:1}100%{opacity:1;transform:translate(-50%,0) scale(1)}}
+.wish-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(20px,4vw,48px);align-items:start}
+.wish-form{background:rgba(243,235,218,.06);border:1px solid rgba(207,174,106,.35);padding:clamp(22px,3vw,34px);border-radius:3px}
+.wish-form h3{font:500 26px/1.3 var(--serif-d);margin-bottom:16px;padding-top:.08em}
+.night .field label{color:var(--gold2)}
+.night .field input,.night .field textarea{background:rgba(243,235,218,.92)}
+.night .err{color:#ffb3a8}
+.wish-count{text-align:right;font:400 12px var(--sans);color:rgba(239,230,210,.6);margin-top:4px}
+.wish-list{display:grid;gap:14px;max-height:560px;overflow:auto;padding-right:6px;scrollbar-width:thin;scrollbar-color:rgba(207,174,106,.5) transparent}
+.wish{background:rgba(243,235,218,.96) var(--tex);color:var(--ink);padding:18px 20px;border-radius:3px;position:relative;box-shadow:0 14px 30px -20px rgba(0,0,0,.6)}
+.wish::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;background:var(--red)}
+.wish p{font-style:italic;line-height:1.7}
+.wish footer{display:flex;justify-content:space-between;gap:10px;margin-top:10px;font:500 12px var(--sans);color:var(--ink3);letter-spacing:.04em}
+.wish footer b{font:600 15px var(--serif-d);color:var(--red);letter-spacing:0}
+.wish.new{animation:glow 2.4s ease}
+@keyframes glow{0%{box-shadow:0 0 0 0 rgba(255,190,100,.9)}100%{box-shadow:0 0 0 18px rgba(255,190,100,0)}}
+@media (max-width:820px){.wish-grid{grid-template-columns:1fr}.wish-list{max-height:none}}
+
+/* ============================================================
+   LỄ KIM (gift pouches)
+   ============================================================ */
+.pouches{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(28px,6vw,90px)}
+.gift{width:min(400px,100%);display:grid;justify-items:center}
+.pouch{position:relative;width:220px;height:270px;border:0;background:none;cursor:pointer;padding:0;transform-origin:50% 0;animation:sway 5s ease-in-out infinite alternate}
+.gift:nth-child(2) .pouch{animation-delay:-2.5s}
+@keyframes sway{from{transform:rotate(-2deg)}to{transform:rotate(2deg)}}
+.pouch-neck{position:absolute;left:50%;top:0;width:44%;height:62px;transform:translateX(-50%);border-radius:40% 40% 12% 12%;background:repeating-linear-gradient(90deg,#82201a 0 6px,#a8352b 6px 12px)}
+.pouch-cord{position:absolute;left:50%;top:50px;width:52%;height:9px;transform:translateX(-50%);border-radius:5px;background:linear-gradient(180deg,#e4c27a,#a8843f);box-shadow:0 2px 3px rgba(0,0,0,.3);z-index:2}
+.pouch-cord::before,.pouch-cord::after{content:"";position:absolute;top:-12px;width:20px;height:16px;border:3px solid #c9a35a;border-radius:50%}
+.pouch-cord::before{left:16%;transform:rotate(-20deg)}.pouch-cord::after{right:16%;transform:rotate(20deg)}
+.pouch-body{position:absolute;left:0;right:0;top:52px;bottom:0;border-radius:28% 28% 44% 44% / 16% 16% 52% 52%;background-color:#a52c24;background-image:radial-gradient(circle at 30% 22%,rgba(255,255,255,.16),transparent 42%),radial-gradient(rgba(214,176,92,.38) 1.2px,transparent 1.7px),radial-gradient(rgba(214,176,92,.22) 1.2px,transparent 1.7px);background-size:auto,16px 16px,16px 16px;background-position:0 0,0 0,8px 8px;box-shadow:inset 0 -22px 34px rgba(0,0,0,.28),inset 0 10px 20px rgba(255,255,255,.08),0 24px 40px -20px rgba(80,20,10,.6);display:grid;place-content:center;justify-items:center;gap:6px;color:var(--paper)}
+.medal{display:grid;place-items:center;width:82px;height:82px;border-radius:50%;border:2px solid #d9b46a;box-shadow:inset 0 0 0 4px #a52c24,inset 0 0 0 5px rgba(217,180,106,.6)}
+.medal .cn{font-size:44px;color:#ecd08a}
+.pouch-side{font:500 22px var(--serif-d);margin-top:4px}
+.pouch-hint{font:600 11.5px var(--sans);letter-spacing:0.14em;text-transform:uppercase;color:rgba(239,230,210,.75)}
+.pouch:hover .medal{box-shadow:inset 0 0 0 4px #a52c24,inset 0 0 0 5px rgba(217,180,106,.6),0 0 22px rgba(236,208,138,.5)}
+.gift.open .pouch{display:none}
+.gift-card{width:100%;background:#f3ebda var(--tex);padding:24px 22px;border-radius:3px;box-shadow:0 30px 50px -30px rgba(29,26,23,.6),inset 0 0 0 1px rgba(168,132,63,.6),inset 0 0 0 6px #f3ebda,inset 0 0 0 7px rgba(168,132,63,.35);text-align:center;animation:unfold .7s var(--ease)}
+.gift-card[hidden]{display:none}
+@keyframes unfold{from{opacity:0;transform:translateY(30px) scaleY(.6);transform-origin:top}to{opacity:1;transform:none}}
+.gc-side{font:600 12px var(--sans);letter-spacing:0.18em;text-transform:uppercase;color:var(--red)}
+.gc-who{font:500 24px/1.3 var(--serif-d);margin:4px 0 16px;padding-top:.06em}
+.qr{width:150px;height:150px;margin:0 auto 16px;display:grid;place-items:center;padding:12px;font:500 12px/1.5 var(--sans);color:var(--ink3);border:1.5px dashed rgba(29,26,23,.4);background:repeating-linear-gradient(45deg,rgba(29,26,23,.04) 0 6px,transparent 6px 12px)}
+.qr img{width:100%;height:100%;object-fit:contain}
+.gc-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid rgba(168,132,63,.3);font-size:15px;text-align:left}
+.gc-row span{color:var(--ink3);font:500 12.5px var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.gc-row b{font-weight:600}
+.gc-acc{display:flex;align-items:center;justify-content:center;gap:12px;margin:16px 0 6px;flex-wrap:wrap}
+.gc-acc strong{font:500 26px var(--serif-d);letter-spacing:.06em}
+.gc-close{margin-top:14px;background:none;border:0;font:500 13px var(--sans);color:var(--ink3);text-decoration:underline;cursor:pointer}
+.gift-note{text-align:center;margin-top:36px;font-style:italic;color:var(--ink3)}
+
+/* ============================================================
+   FOOTER & floating UI
+   ============================================================ */
+.foot{position:relative;text-align:center;padding:clamp(90px,12vw,140px) 16px 60px;overflow:hidden;background:linear-gradient(180deg,var(--paper),#e3d6bb)}
+.foot svg.mtn{height:60%;opacity:.25;filter:blur(1px)}
+.foot-in{position:relative}
+.foot .cn.big{font-size:clamp(56px,10vw,110px);color:var(--ink);letter-spacing:.1em}
+.foot-t{font:italic 400 clamp(18px,2.4vw,24px)/1.6 var(--serif-d);color:var(--ink2);margin-top:12px}
+.foot-names{font:500 clamp(28px,4vw,42px)/1.3 var(--serif-d);margin-top:26px;padding-top:.08em}
+.foot-date{font:500 13px var(--sans);letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
+.foot-seal{margin-top:22px;width:64px;height:64px;font-size:12px}
+.foot-credit{margin-top:34px;font:400 12.5px var(--sans);color:var(--ink3)}
+.toast{position:fixed;left:50%;bottom:26px;z-index:95;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:var(--paper);font:500 14px var(--sans);padding:12px 20px;border-radius:2px;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:opacity .35s,transform .35s;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.fab{position:fixed;bottom:20px;z-index:45;width:48px;height:48px;border-radius:50%;border:1px solid rgba(29,26,23,.3);background:rgba(239,230,210,.92);display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 20px rgba(29,26,23,.18);transition:opacity .35s,transform .35s,background .3s}
+.fab[hidden]{display:none}
+.music{left:20px}
+.music svg{width:20px;height:20px}
+.music.playing{background:var(--red);color:var(--paper);border-color:var(--red)}
+.music.playing svg{animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.totop{right:20px;opacity:0;transform:translateY(12px);pointer-events:none;font-size:18px}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+@media (min-width:1300px){.totop{right:64px}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  html.js .rv{opacity:1;transform:none}
+}
+
+/* ---------- Typography polish (dùng chung) ---------- */
+h1,h2,h3{text-wrap:balance}
+p,li,dd,blockquote{text-wrap:pretty}
+body{font-variant-numeric:lining-nums;font-kerning:normal}
+/* Hina Mincho chỉ có một độ đậm, không nghiêng: không cho trình duyệt tự làm đậm/nghiêng giả */
+h1,h2,h3,[class*="title"],[class*="head"]{font-synthesis:none}
+</style>
+</head>
+<body>
+
+<!-- SVG sprite: filters, gradients, ornaments -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/>
+    </filter>
+    <filter id="inkedge" x="-5%" y="-20%" width="110%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
+    </filter>
+    <linearGradient id="gM" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d1a17" stop-opacity="1"/>
+      <stop offset=".5" stop-color="#1d1a17" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#1d1a17" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <symbol id="brush" viewBox="0 0 300 24"><path d="M3 14 C40 6 92 4 150 8 C208 12 258 8 297 5 C262 15 210 19 150 16 C92 13 46 19 3 14Z" fill="currentColor" filter="url(#inkedge)"/></symbol>
+  <symbol id="cloud" viewBox="0 0 88 40"><path d="M4 34 H84 M16 34 c-9 0-12-11-5-15 c6-3 12 1 12 6 c0 4-3 5-6 4 M42 34 c-11 0-15-15-5-21 c8-5 19 0 19 9 c0 6-5 8-9 6 c-3-1-3-5 0-6 M70 34 c-8 0-11-11-4-15 c6-4 13 0 13 6 c0 4-4 6-7 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- ============ INTRO · QUYỂN TRỤC ============ -->
+<div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Hôn thư — mở thiệp mời">
+  <button class="intro-skip" id="introSkip" type="button">Bỏ qua ›</button>
+  <p class="intro-kicker">Trân trọng kính mời</p>
+  <p class="intro-guest">Kính gửi: <b id="guestName">Quý khách</b></p>
+  <div class="qt" id="qt" aria-hidden="true">
+    <svg class="qt-cord" viewBox="0 0 110 46"><path d="M5 44 L55 4 L105 44" fill="none" stroke="#a8843f" stroke-width="1.5"/><circle cx="55" cy="4" r="4" fill="#cfae6a"/></svg>
+    <span class="qt-rod top"></span>
+    <div class="qt-paper">
+      <div class="qt-cols">
+        <p class="qt-col cn" style="--i:0">囍</p>
+        <p class="qt-col red" style="--i:1">Hoàng Tiến · Thu Trang</p>
+        <p class="qt-col" style="--i:2">Kết tóc se duyên, trăm năm viên mãn</p>
+        <p class="qt-col small" style="--i:3">Chủ Nhật · 20 tháng 12 năm 2026</p>
+        <p class="qt-col small" style="--i:4">Kính mời quý khách quá bộ chung vui</p>
+      </div>
+    </div>
+    <span class="qt-rod bottom"></span>
+    <div class="qt-tie"><span class="seal"><span class="cn">婚书</span><small>Hôn thư</small></span></div>
+  </div>
+  <button class="btn intro-open" id="introOpen" type="button">Mở quyển trục</button>
+  <p class="intro-hint">Chạm vào quyển trục để mở hôn thư</p>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Về đầu trang"><span class="cn" aria-hidden="true">囍</span><span>Tiến · Trang</span></a>
+  <nav class="links" aria-label="Điều hướng chính">
+    <a href="#hon-thu">Hôn thư</a>
+    <a href="#tan-nhan">Tân nhân</a>
+    <a href="#luong-duyen">Lương duyên</a>
+    <a href="#le-nghi">Lễ nghi</a>
+    <a href="#hoa-quyen">Họa quyển</a>
+    <a href="#hoi-thiep">Hồi thiếp</a>
+    <a href="#le-kim">Lễ kim</a>
+  </nav>
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><i aria-hidden="true"></i>Mục lục</button>
+</header>
+
+<div class="menu" id="menu" hidden role="dialog" aria-modal="true" aria-label="Mục lục">
+  <button class="menu-x" id="menuX" type="button" aria-label="Đóng mục lục">×</button>
+  <a href="#hon-thu"><span class="cn" aria-hidden="true">书</span>Hôn thư</a>
+  <a href="#cat-thoi"><span class="cn" aria-hidden="true">时</span>Cát thời</a>
+  <a href="#tan-nhan"><span class="cn" aria-hidden="true">人</span>Tân nhân</a>
+  <a href="#luong-duyen"><span class="cn" aria-hidden="true">缘</span>Lương duyên</a>
+  <a href="#le-nghi"><span class="cn" aria-hidden="true">礼</span>Lễ nghi</a>
+  <a href="#hoa-quyen"><span class="cn" aria-hidden="true">画</span>Họa quyển</a>
+  <a href="#hoi-thiep"><span class="cn" aria-hidden="true">帖</span>Hồi thiếp</a>
+  <a href="#chuc-phuc"><span class="cn" aria-hidden="true">灯</span>Chúc phúc</a>
+  <a href="#le-kim"><span class="cn" aria-hidden="true">金</span>Lễ kim</a>
+  <p class="menu-foot">Hoàng Tiến & Thu Trang · 20.12.2026</p>
+</div>
+
+<nav class="seal-index" aria-label="Mục lục ấn triện">
+  <a href="#hon-thu" data-label="Hôn thư" aria-label="Hôn thư">书</a>
+  <a href="#cat-thoi" data-label="Cát thời" aria-label="Cát thời">时</a>
+  <a href="#tan-nhan" data-label="Tân nhân" aria-label="Tân nhân">人</a>
+  <a href="#luong-duyen" data-label="Lương duyên" aria-label="Lương duyên">缘</a>
+  <a href="#le-nghi" data-label="Lễ nghi" aria-label="Lễ nghi">礼</a>
+  <a href="#hoa-quyen" data-label="Họa quyển" aria-label="Họa quyển">画</a>
+  <a href="#hoi-thiep" data-label="Hồi thiếp" aria-label="Hồi thiếp">帖</a>
+  <a href="#chuc-phuc" data-label="Chúc phúc" aria-label="Chúc phúc">灯</a>
+  <a href="#le-kim" data-label="Lễ kim" aria-label="Lễ kim">金</a>
+</nav>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-sky" aria-hidden="true">
+    <div class="moon" data-depth=".05"></div>
+    <svg class="mtn m1" data-depth=".22" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice"><path fill="url(#gM)" d="M0 330 C90 300 140 230 220 245 C290 258 320 300 380 290 C460 276 500 175 590 168 C680 162 700 258 780 262 C860 266 900 205 980 214 C1060 224 1100 292 1180 282 C1260 272 1320 222 1440 244 V600 H0Z"/></svg>
+    <svg class="mtn m2" data-depth=".15" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice"><path fill="url(#gM)" d="M0 400 C80 384 120 322 200 314 C280 306 330 372 410 362 C500 350 540 268 630 280 C720 292 760 372 860 362 C950 352 990 296 1080 306 C1170 316 1220 384 1320 372 C1380 365 1410 352 1440 354 V600 H0Z"/></svg>
+    <svg class="mtn m3" data-depth=".09" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice"><path fill="url(#gM)" d="M0 470 C100 446 160 394 250 406 C330 418 370 472 460 462 C560 450 610 400 700 414 C800 430 840 484 940 476 C1040 468 1090 412 1180 426 C1270 440 1330 486 1440 470 V600 H0Z"/></svg>
+    <svg class="mtn m4" data-depth=".04" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice"><path fill="url(#gM)" d="M0 230 C110 214 170 172 250 182 C320 190 350 222 420 220 C520 216 560 170 640 184 C730 200 770 240 860 236 C960 232 1010 186 1100 196 C1190 206 1250 246 1340 240 C1390 237 1420 230 1440 228 V300 H0Z"/></svg>
+    <div class="mist mist1"></div><div class="mist mist2"></div><div class="mist mist3"></div>
+  </div>
+  <canvas class="petals" id="petals" aria-hidden="true"></canvas>
+
+  <div class="hero-in">
+    <p class="hero-kicker fx" style="--d:.2s"><span class="cn" aria-hidden="true">良缘</span>Lương duyên tiền định</p>
+    <div class="hero-stage">
+      <div class="couplet"><span class="cn" lang="zh">永结同心</span><small>Vĩnh kết đồng tâm</small></div>
+      <div class="gate fx" style="--d:.1s">
+        <div class="gate-ring" aria-hidden="true"></div>
+        <div class="gate-photo"><img src="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=900&h=900&q=80&auto=format&fit=crop&crop=faces" alt="Chú rể Hoàng Tiến và cô dâu Thu Trang dưới tấm voan cưới (ảnh minh họa)" fetchpriority="high"></div>
+        <span class="seal hero-seal" aria-hidden="true">TIẾN<br>TRANG</span>
+      </div>
+      <div class="couplet right"><span class="cn" lang="zh">百年好合</span><small>Bách niên hảo hợp</small></div>
+    </div>
+    <h1 class="names fx" style="--d:.7s"><span>Hoàng Tiến</span><i class="dot" aria-hidden="true">·</i><span>Thu Trang</span></h1>
+    <p class="readings fx" style="--d:.8s">Bách niên hảo hợp · Vĩnh kết đồng tâm<br>Trăm năm hạnh phúc · Mãi mãi chung lòng</p>
+    <p class="hero-date fx" style="--d:.95s">Chủ Nhật · 20 . 12 . 2026</p>
+    <p class="hero-lunar fx" style="--d:1.05s">Nhằm ngày 12 tháng 11 năm Bính Ngọ</p>
+  </div>
+  <a class="cue" href="#hon-thu"><span>Mở họa quyển</span><i></i></a>
+</section>
+
+<!-- ============ HÔN THƯ ============ -->
+<section class="sec" id="hon-thu">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="head-k"><svg aria-hidden="true"><use href="#cloud"/></svg><span class="cn" aria-hidden="true">婚书</span>Hôn thư<svg class="flip" aria-hidden="true"><use href="#cloud"/></svg></p>
+      <h2>Một lá hôn thư, hai họ chung lời</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    </div>
+    <div class="letter rv">
+      <div class="letter-in">
+        <p class="letter-title" aria-hidden="true">婚书</p>
+        <div class="letter-body">
+          <p>Duyên do trời định, phận bởi người vun.</p>
+          <p>Nay có chàng <em>Hoàng Tiến</em> cùng nàng <em>Thu Trang</em>,</p>
+          <p>bảy năm tương ngộ, một lòng tương tri.</p>
+          <p>Được song thân hai họ ưng thuận,</p>
+          <p>chọn ngày lành tháng tốt kết tóc se tơ:</p>
+          <p><em>Chủ Nhật, ngày 20 tháng 12 năm 2026,</em></p>
+          <p>tức ngày 12 tháng 11 năm Bính Ngọ.</p>
+          <p>Nguyện cầm sắt hòa minh, bạch đầu giai lão.</p>
+          <p>Kính mời quý khách quá bộ chung vui.</p>
+        </div>
+        <div class="letter-sign">
+          <div class="sig"><span class="seal" aria-hidden="true">NHÀ<br>TRAI</span><p><b>Nhà trai</b><br>Ông Nguyễn Văn Thành<br>Bà Lê Thị Hoa</p></div>
+          <div class="sig"><span class="seal" aria-hidden="true">NHÀ<br>GÁI</span><p><b>Nhà gái</b><br>Ông Nguyễn Văn Hùng<br>Bà Trần Thị Mai</p></div>
+        </div>
+      </div>
+    </div>
+    <p class="letter-hint rv">Hôn thư viết theo lối xưa, ấn son hai họ làm chứng.</p>
+  </div>
+</section>
+
+<!-- ============ CÁT THỜI ============ -->
+<section class="sec sec-jade on-dark" id="cat-thoi">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="head-k"><svg aria-hidden="true"><use href="#cloud"/></svg><span class="cn" aria-hidden="true">吉时</span>Cát thời<svg class="flip" aria-hidden="true"><use href="#cloud"/></svg></p>
+      <h2>Giờ lành đang đến gần</h2>
+      <p class="sub">Đếm từng canh giờ, từng khắc, từng hơi thở — chờ ngày hai ta về chung một nhà.</p>
+    </div>
+    <div class="plaque-cd rv" id="cdPlaque">
+      <div class="cd-panel">
+        <div class="cd" role="timer" aria-live="off">
+          <div class="cd-cell" title="Ngày"><b id="cdD">00</b><span>Ngày</span><small>ngày</small></div>
+          <div class="cd-cell" title="Canh giờ = giờ"><b id="cdH">00</b><span>Canh giờ</span><small>giờ</small></div>
+          <div class="cd-cell" title="Khắc = phút"><b id="cdM">00</b><span>Khắc</span><small>phút</small></div>
+          <div class="cd-cell" title="Hơi thở = giây"><b id="cdS">00</b><span>Hơi thở</span><small>giây</small></div>
+        </div>
+        <p class="cd-done">Hôm nay là ngày vui!</p>
+      </div>
+    </div>
+    <p class="cd-note rv">Hỷ yến khai tiệc lúc <b>11 giờ 00, Chủ Nhật 20.12.2026</b> — nhằm ngày 12 tháng 11 năm Bính Ngọ.</p>
+    <div class="btns rv">
+      <a class="btn" id="gcalMain" href="#" target="_blank" rel="noopener">Thêm vào Google Lịch</a>
+      <button class="btn ghost" id="icsMain" type="button">Tải file lịch (.ics)</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TÂN NHÂN ============ -->
+<section class="sec" id="tan-nhan">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="head-k"><svg aria-hidden="true"><use href="#cloud"/></svg><span class="cn" aria-hidden="true">新人</span>Tân nhân<svg class="flip" aria-hidden="true"><use href="#cloud"/></svg></p>
+      <h2>Tân lang &amp; Tân nương</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    </div>
+    <div class="pair">
+      <article class="person rv">
+        <div class="hs"><span class="hs-rod"></span><div class="hs-brocade"><div class="hs-paper"><img src="https://images.unsplash.com/photo-1600091166971-7f9faad6c1e2?w=700&h=930&q=80&auto=format&fit=crop" alt="Ảnh minh họa chú rể Hoàng Tiến — thay bằng ảnh thật" loading="lazy"></div></div><span class="hs-rod"></span></div>
+        <p class="p-cn cn" aria-hidden="true">新郎</p>
+        <p class="p-role">Tân lang · Trưởng nam</p>
+        <h3>Hoàng Tiến</h3>
+        <p class="p-fam">Phụ mẫu: <b>Ông Nguyễn Văn Thành</b> &amp; <b>Bà Lê Thị Hoa</b></p>
+        <p class="p-desc">Kỹ sư phần mềm, mê trà sen và những chuyến đi xa — tin rằng “thuật toán” hay nhất đời mình là đi tìm nàng.</p>
+      </article>
+      <div class="pair-mid rv" style="--d:.15s"><span class="cn" aria-hidden="true">囍</span><small>Thiên tác chi hợp</small></div>
+      <article class="person rv" style="--d:.25s">
+        <div class="hs"><span class="hs-rod"></span><div class="hs-brocade"><div class="hs-paper"><img src="https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?w=700&h=930&q=80&auto=format&fit=crop" alt="Ảnh minh họa cô dâu Thu Trang — thay bằng ảnh thật" loading="lazy"></div></div><span class="hs-rod"></span></div>
+        <p class="p-cn cn" aria-hidden="true">新娘</p>
+        <p class="p-role">Tân nương · Út nữ</p>
+        <h3>Thu Trang</h3>
+        <p class="p-fam">Phụ mẫu: <b>Ông Nguyễn Văn Hùng</b> &amp; <b>Bà Trần Thị Mai</b></p>
+        <p class="p-desc">Cô giáo dạy văn, yêu hoa sen và những chiều mưa — bảo rằng chàng là bài thơ hay nhất nàng từng được đọc.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LƯƠNG DUYÊN KÝ ============ -->
+<section class="ld" id="luong-duyen">
+  <div class="ld-sticky">
+    <div class="ld-track" id="ldTrack">
+      <svg class="ld-path" id="ldSvg" aria-hidden="true"><path class="wash" id="ldWash"/><path class="stroke" id="ldStroke"/></svg>
+      <div class="ld-vline" aria-hidden="true"><span id="ldV"></span></div>
+      <div class="ld-intro">
+        <div class="head rv">
+          <p class="head-k"><span class="cn" aria-hidden="true">良缘</span>Lương duyên ký<svg class="flip" aria-hidden="true"><use href="#cloud"/></svg></p>
+          <h2>Năm hồi duyên phận</h2>
+          <p class="sub">Như một cuộn họa trục dài, chuyện của hai ta được vẽ dần qua từng mùa.</p>
+          <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+        </div>
+        <p class="ld-hint">Cuộn xuống để mở họa quyển ⟶</p>
+      </div>
+
+      <article class="ms" style="--off:-50px">
+        <span class="ms-dot seal cn" aria-hidden="true">一</span>
+        <div class="rv">
+          <figure class="ms-img"><img src="https://images.unsplash.com/photo-1470116945706-e6bf5d5a53ca?w=640&h=480&q=80&auto=format&fit=crop" alt="Hai bàn tay nắm lấy nhau" loading="lazy"></figure>
+          <p class="ms-date">Tháng 6 · 2019 · Hà Nội</p>
+          <h3><small>Hồi thứ nhất</small>Tương ngộ</h3>
+          <p class="ms-poem">Mưa đầu hạ, quán trà nhỏ bên hồ —<br>một chiếc ô, hai người lạ hóa thân quen.</p>
+        </div>
+      </article>
+
+      <article class="ms" style="--off:60px">
+        <span class="ms-dot seal cn" aria-hidden="true">二</span>
+        <div class="rv">
+          <figure class="ms-img"><img src="https://images.unsplash.com/photo-1501901609772-df0848060b33?w=640&h=480&q=80&auto=format&fit=crop" alt="Chàng cõng nàng, cả hai cười rạng rỡ" loading="lazy"></figure>
+          <p class="ms-date">Tháng 2 · 2020</p>
+          <h3><small>Hồi thứ hai</small>Tương tri</h3>
+          <p class="ms-poem">Phố cổ đèn lồng, những chiều chung lối —<br>chẳng hẹn mà lòng đã khắc tên nhau.</p>
+        </div>
+      </article>
+
+      <article class="ms" style="--off:-30px">
+        <span class="ms-dot seal cn" aria-hidden="true">三</span>
+        <div class="rv">
+          <figure class="ms-img"><img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=640&h=480&q=80&auto=format&fit=crop" alt="Đôi nhẫn đặt trên những cánh hoa" loading="lazy"></figure>
+          <p class="ms-date">Tháng 9 · 2024 · Đà Lạt</p>
+          <h3><small>Hồi thứ ba</small>Cầu thân</h3>
+          <p class="ms-poem">Dưới trăng rằm, chàng quỳ trao nhẫn ngọc —<br>nàng khẽ gật đầu, gió cũng lặng thinh.</p>
+        </div>
+      </article>
+
+      <article class="ms" style="--off:70px">
+        <span class="ms-dot seal cn" aria-hidden="true">四</span>
+        <div class="rv">
+          <figure class="ms-img"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=640&h=480&q=80&auto=format&fit=crop" alt="Đôi tay đeo nhẫn bên bó hoa cưới" loading="lazy"></figure>
+          <p class="ms-date">Tháng 8 · 2025 · Hưng Yên</p>
+          <h3><small>Hồi thứ tư</small>Định ước</h3>
+          <p class="ms-poem">Tráp đỏ sính lễ, hai họ chung lời —<br>trầu cau thắm sắc, định ước trăm năm.</p>
+        </div>
+      </article>
+
+      <article class="ms" style="--off:-40px">
+        <span class="ms-dot seal cn" aria-hidden="true">五</span>
+        <div class="rv">
+          <figure class="ms-img"><img src="https://images.unsplash.com/photo-1606216794079-73f85bbd57d5?w=640&h=480&q=80&auto=format&fit=crop" alt="Cô dâu chú rể tựa vào nhau dưới tấm voan" loading="lazy"></figure>
+          <p class="ms-date">20 · 12 · 2026</p>
+          <h3><small>Hồi thứ năm</small>Kết tóc</h3>
+          <p class="ms-poem">Ngày lành tháng tốt, pháo hồng rộn rã —<br>từ nay chung một mái, chung một đời.</p>
+        </div>
+      </article>
+
+      <div class="ld-end rv">
+        <b>Hồi sau sẽ rõ…</b>
+        Muốn biết hai người sống bên nhau ra sao, xin mời quý khách đến chung vui, rồi cùng xem tiếp.
+      </div>
+    </div>
+    <div class="ld-progress" aria-hidden="true"><span id="ldBar"></span></div>
+  </div>
+</section>
+
+<!-- ============ LỄ NGHI ============ -->
+<section class="sec" id="le-nghi">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="head-k"><svg aria-hidden="true"><use href="#cloud"/></svg><span class="cn" aria-hidden="true">礼仪</span>Lễ nghi<svg class="flip" aria-hidden="true"><use href="#cloud"/></svg></p>
+      <h2>Ba lễ trong ngày vui</h2>
+      <p class="sub">Sự hiện diện của quý khách là niềm vinh hạnh cho hai gia đình.</p>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    </div>
+    <div class="plaques" id="plaques"></div>
+    <div class="map-card rv">
+      <div class="map-info">
+        <p class="k">Hỷ yến tại</p>
+        <h3 id="mapPlace">Trung tâm Tiệc cưới Hoa Sen</h3>
+        <p id="mapAddr">Số 88, đường Nguyễn Văn Linh, TP. Hưng Yên</p>
+        <div class="btns">
+          <a class="btn sm" id="mapLink" href="#" target="_blank" rel="noopener">Mở Google Maps</a>
+          <button class="btn sm ghost" id="icsAll" type="button">Lưu cả ba lễ (.ics)</button>
+        </div>
+      </div>
+      <div class="map-frame"><iframe id="mapFrame" title="Bản đồ nơi tổ chức hỷ yến" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HỌA QUYỂN ============ -->
+<section class="sec" id="hoa-quyen" style="background:linear-gradient(180deg,var(--paper),#e9dec7)">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="head-k"><svg aria-hidden="true"><use href="#cloud"/></svg><span class="cn" aria-hidden="true">画卷</span>Họa quyển<svg class="flip" aria-hidden="true"><use href="#cloud"/></svg></p>
+      <h2>Những bức họa của chúng mình</h2>
+      <p class="sub">Di chuột (hoặc cuộn tới) để mực màu loang ra từng bức — chạm vào để xem lớn.</p>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- ============ HỒI THIẾP ============ -->
+<section class="sec" id="hoi-thiep">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="head-k"><svg aria-hidden="true"><use href="#cloud"/></svg><span class="cn" aria-hidden="true">回帖</span>Hồi thiếp<svg class="flip" aria-hidden="true"><use href="#cloud"/></svg></p>
+      <h2>Xin quý khách hồi âm</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    </div>
+    <div class="fold rv" id="rsvpCard">
+      <div class="fold-l">
+        <p class="cn" aria-hidden="true">回帖</p>
+        <p class="fold-t">Hồi thiếp</p>
+        <p>Để hai họ chu toàn việc khoản đãi, xin quý khách vui lòng hồi âm trước ngày <b id="rsvpDeadline">10.12.2026</b>.</p>
+        <p class="fold-sig">— Tiến &amp; Trang kính bái</p>
+      </div>
+      <div class="fold-r">
+        <!--
+          LƯU Ý: hiện hồi thiếp chỉ lưu trong trình duyệt của khách (localStorage).
+          Muốn nhận thật, điền WEDDING.rsvpEndpoint ở đầu <script>:
+          - Formspree: tạo form tại https://formspree.io → dán URL dạng https://formspree.io/f/xxxxabcd
+          - Google Sheets: tạo Apps Script (doPost) → Deploy dạng Web app → dán URL /exec
+          Trang sẽ tự gửi dữ liệu (JSON) tới địa chỉ đó mỗi khi khách bấm "Gửi hồi thiếp".
+        -->
+        <form id="rsvpForm" novalidate>
+          <div class="field" id="fName">
+            <label for="rName">Họ và tên *</label>
+            <input id="rName" name="name" autocomplete="name" placeholder="Ví dụ: Nguyễn Văn An" maxlength="60">
+            <p class="err" id="eName"></p>
+          </div>
+          <div class="row2">
+            <div class="field" id="fPhone">
+              <label for="rPhone">Số điện thoại *</label>
+              <input id="rPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx" maxlength="15">
+              <p class="err" id="ePhone"></p>
+            </div>
+            <div class="field">
+              <label for="rGuests">Số người</label>
+              <select id="rGuests" name="guests">
+                <option value="1">1 người</option><option value="2" selected>2 người</option><option value="3">3 người</option><option value="4">4 người</option><option value="5">5 người trở lên</option>
+              </select>
+            </div>
+          </div>
+          <fieldset class="field" id="fAttend">
+            <legend>Quý khách sẽ đến chứ? *</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="attend" value="yes"><span>Nhất định sẽ đến</span></label>
+              <label class="choice"><input type="radio" name="attend" value="no"><span>Tiếc quá, không đến được</span></label>
+            </div>
+            <p class="err" id="eAttend"></p>
+          </fieldset>
+          <div class="field">
+            <label for="rEvent">Tham dự lễ nào?</label>
+            <select id="rEvent" name="event">
+              <option value="hyyen">Hỷ yến · 11:00 Chủ Nhật 20.12</option>
+              <option value="vuquy">Lễ Vu Quy · 09:00 Thứ Bảy 19.12</option>
+              <option value="thanhhon">Lễ Thành Hôn · 09:00 Chủ Nhật 20.12</option>
+              <option value="all">Cả ba lễ</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="rMsg">Lời nhắn cho tân lang, tân nương</label>
+            <textarea id="rMsg" name="message" rows="3" maxlength="300" placeholder="Đôi lời chúc phúc…"></textarea>
+          </div>
+          <button class="btn" type="submit">Gửi hồi thiếp</button>
+          <p class="form-note">Thông tin chỉ dùng để hai gia đình chuẩn bị chỗ ngồi.</p>
+        </form>
+        <div class="rsvp-done" id="rsvpDone" hidden>
+          <p class="done-t">Đã nhận hồi thiếp của <b id="rsvpName"></b></p>
+          <p id="rsvpMsg"></p>
+          <button class="btn ghost sm" id="rsvpAgain" type="button">Gửi hồi thiếp khác</button>
+        </div>
+      </div>
+      <div class="stamp" aria-hidden="true"><span class="seal">ĐÃ<br>NHẬN</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THIÊN ĐĂNG CHÚC PHÚC ============ -->
+<section class="sec night on-dark" id="chuc-phuc">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="head-k"><svg aria-hidden="true"><use href="#cloud"/></svg><span class="cn" aria-hidden="true">天灯</span>Thiên đăng chúc phúc<svg class="flip" aria-hidden="true"><use href="#cloud"/></svg></p>
+      <h2>Thả một ngọn đèn, gửi một lời chúc</h2>
+      <p class="sub">Mỗi lời chúc là một ngọn thiên đăng bay lên trời đêm. Di chuột lên đèn để đọc.</p>
+    </div>
+    <div class="sky-stage" id="skyStage" aria-hidden="true"></div>
+    <div class="wish-grid">
+      <form class="wish-form rv" id="wishForm" novalidate>
+        <h3>Viết lời chúc</h3>
+        <div class="field" id="fwName">
+          <label for="wName">Tên của bạn *</label>
+          <input id="wName" name="name" maxlength="40" placeholder="Ví dụ: Chị Hà (đồng nghiệp)">
+          <p class="err" id="ewName"></p>
+        </div>
+        <div class="field" id="fwText">
+          <label for="wText">Lời chúc *</label>
+          <textarea id="wText" name="text" rows="4" maxlength="300" placeholder="Chúc hai bạn trăm năm hạnh phúc…"></textarea>
+          <p class="wish-count"><span id="wCount">0</span>/300</p>
+          <p class="err" id="ewText"></p>
+        </div>
+        <button class="btn" type="submit">Thả đèn chúc phúc</button>
+      </form>
+      <div class="wish-list" id="wishList" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LỄ KIM ============ -->
+<section class="sec" id="le-kim">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="head-k"><svg aria-hidden="true"><use href="#cloud"/></svg><span class="cn" aria-hidden="true">礼金</span>Lễ kim<svg class="flip" aria-hidden="true"><use href="#cloud"/></svg></p>
+      <h2>Túi gấm gửi yêu thương</h2>
+      <p class="sub">Sự hiện diện của quý khách đã là món quà quý nhất. Nếu ở xa không thể đến, xin gửi lời chúc qua túi gấm nhỏ này.</p>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    </div>
+    <div class="pouches" id="pouches"></div>
+    <p class="gift-note rv">Chạm vào túi gấm để mở.</p>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <svg class="mtn" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path fill="url(#gM)" d="M0 230 C110 214 170 172 250 182 C320 190 350 222 420 220 C520 216 560 170 640 184 C730 200 770 240 860 236 C960 232 1010 186 1100 196 C1190 206 1250 246 1340 240 C1390 237 1420 230 1440 228 V300 H0Z"/></svg>
+  <div class="foot-in">
+    <p class="cn big" aria-hidden="true">天作之合</p>
+    <p class="foot-t">Thiên tác chi hợp — Trời tác thành, đất chứng giám.<br>Đa tạ quý khách đã cùng chúng tôi viết nên trang đầu của trăm năm.</p>
+    <p class="foot-names">Hoàng Tiến &amp; Thu Trang</p>
+    <p class="foot-date">20 · 12 · 2026 · Hưng Yên</p>
+    <span class="seal foot-seal" aria-hidden="true">TIẾN<br>TRANG</span>
+    <p class="foot-credit">Ảnh minh họa từ Unsplash — sẽ được thay bằng ảnh cưới thật.</p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Xem ảnh">
+  <button class="lb-x" id="lbX" type="button" aria-label="Đóng">×</button>
+  <button class="lb-prev" id="lbPrev" type="button" aria-label="Ảnh trước">‹</button>
+  <figure class="lb-fig">
+    <div class="lb-frame"><img id="lbImg" alt=""></div>
+    <figcaption><span id="lbCap"></span><span id="lbNum"></span></figcaption>
+  </figure>
+  <button class="lb-next" id="lbNext" type="button" aria-label="Ảnh sau">›</button>
+</div>
+
+<audio id="bgm" src="../music/nhac-cuoi.mp3" loop preload="none"></audio>
+<button class="fab music" id="musicBtn" type="button" aria-label="Bật nhạc nền" aria-pressed="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+</button>
+<button class="fab totop" id="toTop" type="button" aria-label="Lên đầu trang">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =============================================================
+   THÔNG TIN ĐÁM CƯỚI — sửa tại đây
+   ============================================================= */
+const WEDDING = {
+  groom: { name: 'Hoàng Tiến', father: 'Ông Nguyễn Văn Thành', mother: 'Bà Lê Thị Hoa' },
+  bride: { name: 'Thu Trang', father: 'Ông Nguyễn Văn Hùng', mother: 'Bà Trần Thị Mai' },
+  date: '2026-12-20T11:00:00+07:00',            // giờ khai tiệc (dùng cho đếm ngược)
+  rsvpDeadline: '10.12.2026',
+  rsvpEndpoint: '',                              // URL Formspree / Google Apps Script (để trống = chỉ lưu trên máy khách)
+  events: [
+    { id: 'vuquy', cn: '于归', name: 'Lễ Vu Quy', side: 'Nhà gái',
+      start: '2026-12-19T09:00:00+07:00', end: '2026-12-19T11:00:00+07:00',
+      lunar: 'Nhằm ngày 11 tháng 11 năm Bính Ngọ',
+      place: 'Tư gia nhà gái', address: 'Số 18, đường Hoa Sữa, TP. Hưng Yên' },
+    { id: 'thanhhon', cn: '成婚', name: 'Lễ Thành Hôn', side: 'Nhà trai',
+      start: '2026-12-20T09:00:00+07:00', end: '2026-12-20T10:30:00+07:00',
+      lunar: 'Nhằm ngày 12 tháng 11 năm Bính Ngọ',
+      place: 'Tư gia nhà trai', address: 'Số 25, phố Bạch Đằng, TP. Hưng Yên' },
+    { id: 'hyyen', cn: '喜宴', name: 'Hỷ yến', side: 'Hai họ', main: true,
+      start: '2026-12-20T11:00:00+07:00', end: '2026-12-20T14:00:00+07:00',
+      lunar: 'Nhằm ngày 12 tháng 11 năm Bính Ngọ',
+      place: 'Trung tâm Tiệc cưới Hoa Sen', address: 'Số 88, đường Nguyễn Văn Linh, TP. Hưng Yên' }
+  ],
+  gifts: [   // THÔNG TIN MẪU — thay bằng tài khoản thật
+    { side: 'Nhà trai', who: 'Chú rể Hoàng Tiến', bank: 'Vietcombank', account: '0123456789', holder: 'NGUYEN HOANG TIEN', qr: '' },
+    { side: 'Nhà gái', who: 'Cô dâu Thu Trang', bank: 'Vietcombank', account: '0123456789', holder: 'NGUYEN THU TRANG', qr: '' }
+  ]
+};
+
+/* Album "Họa quyển": [mã ảnh Unsplash hoặc đường dẫn ảnh, chú thích, chiều cao khi rộng 600] */
+const GALLERY = [
+  ['1606216794074-735e91aa2c92', 'Dưới tán cọ xanh', 800],
+  ['1537633552985-df8429e8048b', 'Gió biển nâng tà voan', 640],
+  ['1460978812857-470ed1c77af0', 'Nàng · bức họa trắng đen', 820],
+  ['1591604466107-ec97de577aff', 'Tay hoa, tay người', 760],
+  ['1532712938310-34cb3982ef74', 'Non cao chung bước', 600],
+  ['1587271407850-8d438ca9fdf2', 'Hỷ đường rực rỡ', 640],
+  ['1494774157365-9e04c6720e47', 'Hoàng hôn soi bóng', 780],
+  ['1541250848049-b4f7141dca3f', 'Rừng thông thì thầm', 820],
+  ['1606490194859-07c18c9f0968', 'Nắng chiều vương tóc', 700],
+  ['1604017011826-d3b4c23f8914', 'Đồi gió lộng', 640],
+  ['1525258946800-98cfd641d0de', 'Bó hoa ngày cưới', 760],
+  ['1606800052052-a08af7148866', 'Đôi nhẫn định ước', 600]
+];
+
+(() => {
+  'use strict';
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const pad = n => String(n).padStart(2, '0');
+  const WD = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+  const img = (id, w, h) => /[\/.]/.test(id) ? id
+    : `https://images.unsplash.com/photo-${id}?w=${w}${h ? `&h=${h}` : ''}&q=80&auto=format&fit=crop`;
+  const parts = iso => {
+    const [d, t] = iso.split('T');
+    const [y, m, dd] = d.split('-').map(Number);
+    return { date: `${pad(dd)}.${pad(m)}.${y}`, time: t.slice(0, 5), wd: WD[new Date(Date.UTC(y, m - 1, dd)).getUTCDay()] };
+  };
+  const store = {
+    get(k) { try { return JSON.parse(localStorage.getItem(k)) || []; } catch (e) { return []; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+
+  /* ---------- Toast ---------- */
+  const toastEl = $('#toast'); let toastT;
+  const toast = msg => {
+    toastEl.textContent = msg; toastEl.classList.add('show');
+    clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove('show'), 2600);
+  };
+
+  /* ---------- Nhạc nền ---------- */
+  const audio = $('#bgm'), mBtn = $('#musicBtn');
+  let musicOk = true;
+  const hideMusic = () => { musicOk = false; mBtn.hidden = true; };
+  const setPlaying = on => {
+    mBtn.classList.toggle('playing', on);
+    mBtn.setAttribute('aria-pressed', on);
+    mBtn.setAttribute('aria-label', on ? 'Tắt nhạc nền' : 'Bật nhạc nền');
+  };
+  audio.addEventListener('error', hideMusic);
+  audio.addEventListener('play', () => setPlaying(true));
+  audio.addEventListener('pause', () => setPlaying(false));
+  if (/^https?:/.test(location.protocol)) {
+    fetch(audio.getAttribute('src'), { method: 'HEAD' }).then(r => { if (!r.ok) hideMusic(); }).catch(() => {});
+  }
+  const playMusic = () => {
+    if (!musicOk) return;
+    const p = audio.play();
+    if (p && p.catch) p.catch(err => { if (err && err.name === 'NotSupportedError') hideMusic(); });
+  };
+  mBtn.addEventListener('click', () => audio.paused ? playMusic() : audio.pause());
+
+  /* ---------- Intro · quyển trục ---------- */
+  const intro = $('#intro');
+  const guest = new URLSearchParams(location.search).get('khach');
+  if (guest) $('#guestName').textContent = guest.slice(0, 60);
+  let opening = false, introClosed = false;
+  document.body.classList.add('lock');
+  const closeIntro = () => {
+    if (introClosed) return;
+    introClosed = true;
+    intro.classList.add('gone');
+    document.body.classList.remove('lock');
+    document.documentElement.classList.add('opened');
+    setTimeout(() => { intro.hidden = true; }, 1000);
+    requestAnimationFrame(() => { ldLayout(); });
+  };
+  const openScroll = () => {
+    if (opening) return;
+    opening = true;
+    playMusic();
+    intro.classList.add('open');
+    setTimeout(closeIntro, reduce ? 300 : 4200);
+  };
+  $('#introOpen').addEventListener('click', openScroll);
+  $('#qt').addEventListener('click', openScroll);
+  $('#introSkip').addEventListener('click', () => { playMusic(); closeIntro(); });
+  setTimeout(() => { if (!introClosed) $('#introOpen').focus({ preventScroll: true }); }, 50);
+
+  /* ---------- Nav, menu, seal index ---------- */
+  const nav = $('#nav'), toTop = $('#toTop');
+  const menu = $('#menu'), menuBtn = $('#menuBtn');
+  const openMenu = () => { menu.hidden = false; menuBtn.setAttribute('aria-expanded', 'true'); document.body.classList.add('lock'); $('#menuX').focus(); };
+  const closeMenu = () => { menu.hidden = true; menuBtn.setAttribute('aria-expanded', 'false'); if (introClosed) document.body.classList.remove('lock'); };
+  menuBtn.addEventListener('click', openMenu);
+  $('#menuX').addEventListener('click', () => { closeMenu(); menuBtn.focus(); });
+  $$('a', menu).forEach(a => a.addEventListener('click', closeMenu));
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
+
+  const navLinks = $$('.links a, .seal-index a');
+  const spy = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return;
+    const id = '#' + en.target.id;
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  $$('main section[id]').forEach(s => spy.observe(s));
+
+  /* ---------- Hero: cánh mai & parallax ---------- */
+  const hero = $('#top');
+  let heroVisible = true;
+  new IntersectionObserver(es => { heroVisible = es[0].isIntersecting; if (heroVisible) startPetals(); }).observe(hero);
+
+  const cv = $('#petals'), ctx = cv.getContext('2d');
+  let W = 0, H = 0, petals = [], petalsOn = false;
+  const sizeCanvas = () => {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  const makePetal = init => ({
+    x: Math.random() * W, y: init ? Math.random() * H : -20 - Math.random() * 60,
+    r: 4 + Math.random() * 5, vy: .35 + Math.random() * .6, vx: -.15 + Math.random() * .45,
+    a: Math.random() * 6.28, va: -.02 + Math.random() * .04, sw: Math.random() * 6.28,
+    bloom: Math.random() < .2, o: .5 + Math.random() * .4
+  });
+  const drawPetal = p => {
+    ctx.save();
+    ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.globalAlpha = p.o;
+    if (p.bloom) {
+      ctx.fillStyle = '#b3302a';
+      for (let i = 0; i < 5; i++) {
+        ctx.rotate(Math.PI * 2 / 5);
+        ctx.beginPath(); ctx.ellipse(0, -p.r * .85, p.r * .55, p.r * .75, 0, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.fillStyle = '#d9b25a'; ctx.beginPath(); ctx.arc(0, 0, p.r * .3, 0, Math.PI * 2); ctx.fill();
+    } else {
+      ctx.fillStyle = '#b3302a';
+      ctx.beginPath(); ctx.ellipse(0, 0, p.r, p.r * .6, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = 'rgba(120,20,15,.45)';
+      ctx.beginPath(); ctx.ellipse(-p.r * .2, 0, p.r * .45, p.r * .22, 0, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.restore();
+  };
+  const petalLoop = () => {
+    if (!heroVisible || document.hidden) { petalsOn = false; return; }
+    ctx.clearRect(0, 0, W, H);
+    for (const p of petals) {
+      p.sw += .02; p.x += p.vx + Math.sin(p.sw) * .45; p.y += p.vy; p.a += p.va;
+      if (p.y > H + 20 || p.x < -30 || p.x > W + 30) Object.assign(p, makePetal(false));
+      drawPetal(p);
+    }
+    requestAnimationFrame(petalLoop);
+  };
+  function startPetals() {
+    if (reduce || petalsOn || !heroVisible || document.hidden) return;
+    petalsOn = true; requestAnimationFrame(petalLoop);
+  }
+  if (!reduce) {
+    sizeCanvas();
+    const n = innerWidth < 700 ? 14 : 26;
+    for (let i = 0; i < n; i++) petals.push(makePetal(true));
+    startPetals();
+    document.addEventListener('visibilitychange', startPetals);
+  }
+
+  const layers = $$('.hero [data-depth]');
+  let ticking = false;
+  const onScroll = () => {
+    const y = window.scrollY;
+    nav.classList.toggle('solid', y > 40);
+    toTop.classList.toggle('show', y > 700);
+    if (!reduce && y < innerHeight * 1.3) layers.forEach(l => { l.style.transform = `translate3d(0,${(y * l.dataset.depth).toFixed(1)}px,0)`; });
+    ldUpdate();
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+
+  /* ---------- Lịch: Google Calendar & .ics ---------- */
+  const toUTC = iso => new Date(iso).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  const couple = `${WEDDING.groom.name} & ${WEDDING.bride.name}`;
+  const gcal = ev => 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+    + '&text=' + encodeURIComponent(`${ev.name} — ${couple}`)
+    + '&dates=' + toUTC(ev.start) + '/' + toUTC(ev.end)
+    + '&details=' + encodeURIComponent(`${ev.lunar}. Trân trọng kính mời quý khách đến chung vui cùng ${couple}.`)
+    + '&location=' + encodeURIComponent(`${ev.place}, ${ev.address}`);
+  const mapUrl = ev => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(`${ev.place}, ${ev.address}`);
+  const downloadIcs = list => {
+    const e = s => String(s).replace(/\\/g, '\\\\').replace(/\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;');
+    const L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Tien Trang//Wedding//VI', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH'];
+    const stamp = toUTC(new Date().toISOString());
+    list.forEach(ev => L.push('BEGIN:VEVENT', `UID:${ev.id}-${toUTC(ev.start)}@tien-trang`, `DTSTAMP:${stamp}`,
+      `DTSTART:${toUTC(ev.start)}`, `DTEND:${toUTC(ev.end)}`, `SUMMARY:${e(ev.name + ' — ' + couple)}`,
+      `LOCATION:${e(ev.place + ', ' + ev.address)}`, `DESCRIPTION:${e(ev.lunar)}`, 'END:VEVENT'));
+    L.push('END:VCALENDAR');
+    const url = URL.createObjectURL(new Blob([L.join('\r\n')], { type: 'text/calendar;charset=utf-8' }));
+    const a = Object.assign(document.createElement('a'), { href: url, download: 'dam-cuoi-tien-trang.ics' });
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1500);
+    toast('Đã tải file lịch — mở file để thêm vào lịch của bạn');
+  };
+  const mainEv = WEDDING.events.find(e => e.main) || WEDDING.events[WEDDING.events.length - 1];
+  $('#gcalMain').href = gcal(mainEv);
+  $('#icsMain').addEventListener('click', () => downloadIcs(WEDDING.events));
+  $('#icsAll').addEventListener('click', () => downloadIcs(WEDDING.events));
+
+  /* ---------- Lễ nghi ---------- */
+  $('#plaques').innerHTML = WEDDING.events.map((ev, i) => {
+    const p = parts(ev.start);
+    return `<article class="plaque rv${ev.main ? ' main' : ''}" style="--d:${(i * .12).toFixed(2)}s">
+      <span class="pl-cord" aria-hidden="true"></span>
+      <div class="pl-board">
+        ${ev.main ? '<span class="pl-badge">Tiệc chính</span>' : ''}
+        <div class="pl-paper">
+          <p class="pl-cn cn" aria-hidden="true">${esc(ev.cn)}</p>
+          <p class="pl-side">${esc(ev.side)}</p>
+          <h3>${esc(ev.name)}</h3>
+          <p class="pl-time">${p.time}</p>
+          <p class="pl-date">${p.wd}, ${p.date}</p>
+          <p class="pl-lunar">${esc(ev.lunar)}</p>
+          <div class="pl-rule"></div>
+          <p class="pl-place">${esc(ev.place)}</p>
+          <p class="pl-addr">${esc(ev.address)}</p>
+          <div class="pl-btns">
+            <a class="btn sm" href="${mapUrl(ev)}" target="_blank" rel="noopener">Chỉ đường</a>
+            <a class="btn sm ghost" href="${gcal(ev)}" target="_blank" rel="noopener">Lưu lịch</a>
+          </div>
+        </div>
+      </div>
+      ${ev.main ? '<span class="pl-tassel" aria-hidden="true"></span>' : ''}
+    </article>`;
+  }).join('');
+  $('#mapPlace').textContent = mainEv.place;
+  $('#mapAddr').textContent = mainEv.address;
+  $('#mapLink').href = mapUrl(mainEv);
+  $('#mapFrame').src = 'https://maps.google.com/maps?q=' + encodeURIComponent(`${mainEv.place}, ${mainEv.address}`) + '&z=15&output=embed';
+
+  /* ---------- Đếm ngược ---------- */
+  const target = new Date(WEDDING.date).getTime();
+  const cdEls = { d: $('#cdD'), h: $('#cdH'), m: $('#cdM'), s: $('#cdS') };
+  let cdTimer;
+  const tick = () => {
+    const diff = target - Date.now();
+    if (diff <= 0) { $('#cdPlaque').classList.add('done'); clearInterval(cdTimer); return; }
+    const s = Math.floor(diff / 1000);
+    cdEls.d.textContent = pad(Math.floor(s / 86400));
+    cdEls.h.textContent = pad(Math.floor(s % 86400 / 3600));
+    cdEls.m.textContent = pad(Math.floor(s % 3600 / 60));
+    cdEls.s.textContent = pad(s % 60);
+  };
+  tick(); cdTimer = setInterval(tick, 1000);
+  $('#rsvpDeadline').textContent = WEDDING.rsvpDeadline;
+
+  /* ---------- Họa quyển + lightbox ---------- */
+  const gal = $('#gallery');
+  gal.innerHTML = GALLERY.map(([id, cap, h], i) => {
+    const src = img(id, 600, h);
+    return `<button class="art rv" type="button" data-i="${i}" style="--d:${(i % 3 * .08).toFixed(2)}s" aria-label="Xem ảnh: ${esc(cap)}">
+      <span class="art-mount"><span class="art-img">
+        <img class="mono" src="${src}" alt="" loading="lazy" width="600" height="${h}">
+        <img class="color" src="${src}" alt="${esc(cap)}" loading="lazy">
+      </span><span class="art-cap"><b>${pad(i + 1)}</b>${esc(cap)}</span></span>
+    </button>`;
+  }).join('');
+  const lb = $('#lb'), lbImg = $('#lbImg');
+  let lbI = 0, lbReturn = null;
+  const lbShow = i => {
+    lbI = (i + GALLERY.length) % GALLERY.length;
+    const [id, cap] = GALLERY[lbI];
+    lbImg.src = img(id, 1600);
+    lbImg.alt = cap;
+    $('#lbCap').textContent = cap;
+    $('#lbNum').textContent = `${pad(lbI + 1)} / ${pad(GALLERY.length)}`;
+  };
+  const lbOpen = i => { lbReturn = document.activeElement; lbShow(i); lb.hidden = false; document.body.classList.add('lock'); $('#lbX').focus(); };
+  const lbClose = () => { lb.hidden = true; document.body.classList.remove('lock'); if (lbReturn) lbReturn.focus(); };
+  gal.addEventListener('click', e => { const b = e.target.closest('.art'); if (b) lbOpen(+b.dataset.i); });
+  $('#lbX').addEventListener('click', lbClose);
+  $('#lbPrev').addEventListener('click', () => lbShow(lbI - 1));
+  $('#lbNext').addEventListener('click', () => lbShow(lbI + 1));
+  lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
+  let tx = 0, ty = 0;
+  lb.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) lbShow(lbI + (dx < 0 ? 1 : -1));
+  });
+  lb.addEventListener('keydown', e => {
+    if (e.key !== 'Tab') return;
+    const f = $$('button', lb), first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!lb.hidden) {
+      if (e.key === 'Escape') lbClose();
+      else if (e.key === 'ArrowLeft') lbShow(lbI - 1);
+      else if (e.key === 'ArrowRight') lbShow(lbI + 1);
+      return;
+    }
+    if (e.key === 'Escape') {
+      if (!introClosed) { playMusic(); closeIntro(); }
+      else if (!menu.hidden) { closeMenu(); menuBtn.focus(); }
+    }
+  });
+
+  /* ---------- Lương duyên ký: họa trục cuộn ngang ---------- */
+  const ld = $('#luong-duyen'), track = $('#ldTrack'), svg = $('#ldSvg');
+  const stroke = $('#ldStroke'), wash = $('#ldWash'), bar = $('#ldBar'), vline = $('#ldV');
+  let pin = false, maxX = 0, pathLen = 0;
+  const buildPath = () => {
+    const tr = track.getBoundingClientRect();
+    const pts = $$('.ms-dot', track).map(d => {
+      const r = d.getBoundingClientRect();
+      return [r.left - tr.left + r.width / 2, r.top - tr.top + r.height / 2];
+    });
+    const intro = $('.ld-intro', track).getBoundingClientRect(), end = $('.ld-end', track).getBoundingClientRect();
+    pts.unshift([intro.right - tr.left - 40, intro.top - tr.top + intro.height * .78]);
+    pts.push([end.left - tr.left + 20, end.top - tr.top - 30]);
+    let d = `M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
+    for (let i = 1; i < pts.length; i++) {
+      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], mx = (x0 + x1) / 2;
+      d += ` C${mx.toFixed(1)} ${y0.toFixed(1)} ${mx.toFixed(1)} ${y1.toFixed(1)} ${x1.toFixed(1)} ${y1.toFixed(1)}`;
+    }
+    const w = track.scrollWidth, h = track.clientHeight;
+    svg.setAttribute('width', w); svg.setAttribute('height', h); svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    stroke.setAttribute('d', d); wash.setAttribute('d', d);
+    pathLen = stroke.getTotalLength();
+    [stroke, wash].forEach(p => { p.style.strokeDasharray = pathLen; p.style.strokeDashoffset = pathLen; });
+  };
+  function ldLayout() {
+    pin = innerWidth >= 900 && innerHeight >= 560 && !reduce;
+    ld.classList.toggle('pin', pin);
+    track.style.transform = '';
+    if (pin) {
+      maxX = Math.max(0, track.scrollWidth - innerWidth);
+      ld.style.setProperty('--ldh', (innerHeight + maxX) + 'px');
+      buildPath();
+    } else {
+      ld.style.removeProperty('--ldh');
+    }
+    ldUpdate();
+  }
+  function ldUpdate() {
+    const r = ld.getBoundingClientRect();
+    if (pin) {
+      const dist = ld.offsetHeight - innerHeight;
+      const p = dist > 0 ? clamp(-r.top / dist) : 0;
+      track.style.transform = `translate3d(${(-p * maxX).toFixed(1)}px,0,0)`;
+      const off = pathLen * (1 - clamp(p * 1.08));
+      stroke.style.strokeDashoffset = off; wash.style.strokeDashoffset = off;
+      bar.style.transform = `scaleX(${p.toFixed(4)})`;
+    } else {
+      vline.style.transform = `scaleY(${clamp((innerHeight * .65 - r.top) / r.height).toFixed(4)})`;
+    }
+  }
+  let rT;
+  window.addEventListener('resize', () => {
+    clearTimeout(rT);
+    rT = setTimeout(() => { if (!reduce) sizeCanvas(); ldLayout(); }, 150);
+  });
+  window.addEventListener('load', ldLayout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ldLayout);
+  ldLayout();
+
+  /* ---------- Hồi thiếp (RSVP) ---------- */
+  const form = $('#rsvpForm'), card = $('#rsvpCard');
+  const setErr = (field, errEl, msg) => { $(field).classList.toggle('bad', !!msg); $(errEl).textContent = msg || ''; };
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const name = (fd.get('name') || '').trim();
+    const phone = (fd.get('phone') || '').replace(/[\s.\-]/g, '');
+    const attend = fd.get('attend');
+    let firstBad = null;
+    if (name.length < 2) { setErr('#fName', '#eName', 'Xin quý khách cho biết họ tên.'); firstBad = firstBad || $('#rName'); }
+    else setErr('#fName', '#eName', '');
+    if (!/^(0|\+84)\d{9,10}$/.test(phone)) { setErr('#fPhone', '#ePhone', 'Số điện thoại chưa đúng (ví dụ 0912 345 678).'); firstBad = firstBad || $('#rPhone'); }
+    else setErr('#fPhone', '#ePhone', '');
+    if (!attend) { setErr('#fAttend', '#eAttend', 'Xin chọn một trong hai lựa chọn.'); firstBad = firstBad || $('input[name=attend]', form); }
+    else setErr('#fAttend', '#eAttend', '');
+    if (firstBad) { firstBad.focus(); return; }
+
+    const entry = { name, phone, guests: fd.get('guests'), attend, event: fd.get('event'), message: (fd.get('message') || '').trim(), at: new Date().toISOString() };
+    const list = store.get('cophong_rsvp'); list.push(entry); store.set('cophong_rsvp', list);
+    if (WEDDING.rsvpEndpoint) {
+      fetch(WEDDING.rsvpEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(entry) }).catch(() => {});
+    }
+    card.classList.remove('stamped'); void card.offsetWidth; card.classList.add('stamped');
+    $('#rsvpName').textContent = name;
+    $('#rsvpMsg').textContent = attend === 'yes'
+      ? 'Hai họ xin đa tạ và hân hạnh được đón tiếp quý khách. Hẹn gặp trong ngày vui!'
+      : 'Tiếc vì không được gặp quý khách — xin cảm tạ tấm lòng đã gửi về.';
+    setTimeout(() => { form.hidden = true; $('#rsvpDone').hidden = false; $('#rsvpAgain').focus({ preventScroll: true }); }, reduce ? 0 : 450);
+    toast('Hồi thiếp đã được đóng dấu');
+  });
+  $('#rsvpAgain').addEventListener('click', () => {
+    form.reset(); form.hidden = false; $('#rsvpDone').hidden = true; card.classList.remove('stamped'); $('#rName').focus();
+  });
+
+  /* ---------- Thiên đăng chúc phúc ---------- */
+  const SEED = [
+    { name: 'Chị Hà & anh Long', text: 'Chúc hai em trăm năm hạnh phúc, sớm có tin vui nhé! Nhìn hai đứa từ hồi còn đi học đến giờ mà chị xúc động ghê.', at: '2026-10-20T09:00:00+07:00' },
+    { name: 'Hội bạn đại học', text: 'Cuối cùng Tiến cũng rước được nàng về dinh! Chúc hai bạn bách niên giai lão, cãi nhau thì nhớ làm lành trước 12 giờ đêm.', at: '2026-10-18T20:00:00+07:00' },
+    { name: 'Minh Thư', text: 'Chúc cậu luôn xinh đẹp, rạng rỡ như ngày cưới. Hạnh phúc thật nhiều nhé, cô dâu của năm!', at: '2026-10-15T12:00:00+07:00' }
+  ];
+  const sky = $('#skyStage'), wishList = $('#wishList');
+  const allWishes = () => [...store.get('cophong_wishes').slice().reverse(), ...SEED];
+  const rnd = i => { const x = Math.sin(i * 12.9898 + 4.1) * 43758.5453; return x - Math.floor(x); };
+  const fmtDate = iso => { const d = new Date(iso); return `${pad(d.getDate())}/${pad(d.getMonth() + 1)}/${d.getFullYear()}`; };
+  const lanternHTML = (w, i, n) => {
+    const cols = Math.max(n, 5);
+    const x = 6 + (i + .5) / cols * 88 + (rnd(i) - .5) * 5;
+    const y = 8 + rnd(i + 7) * 52;
+    const s = (.8 + rnd(i + 3) * .45).toFixed(2);
+    const first = w.name.split(/\s+/).slice(-2).join(' ');
+    return `<div class="lantern" style="--x:${x.toFixed(1)}%;--y:${y.toFixed(1)}%">
+      <span class="ln-float" style="--t:${(5 + rnd(i + 1) * 3).toFixed(1)}s;--dl:${(-rnd(i + 2) * 4).toFixed(1)}s;--s:${s}">
+        <span class="ln-body" style="--s:${s}"><span class="ln-name">${esc(first)}</span></span>
+      </span>
+      <span class="ln-tip">“${esc(w.text.length > 110 ? w.text.slice(0, 107) + '…' : w.text)}” — ${esc(w.name)}</span>
+    </div>`;
+  };
+  const wishCard = (w, isNew) => `<article class="wish${isNew ? ' new' : ''}"><p>${esc(w.text)}</p><footer><b>${esc(w.name)}</b><span>${fmtDate(w.at)}</span></footer></article>`;
+  const renderWishes = () => {
+    const all = allWishes();
+    const shown = all.slice(0, innerWidth < 640 ? 7 : 11);
+    sky.innerHTML = shown.map((w, i) => lanternHTML(w, i, shown.length)).join('');
+    wishList.innerHTML = all.map(w => wishCard(w)).join('');
+  };
+  renderWishes();
+  const wText = $('#wText');
+  wText.addEventListener('input', () => { $('#wCount').textContent = wText.value.length; });
+  $('#wishForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = $('#wName').value.trim(), text = wText.value.trim();
+    let bad = null;
+    if (name.length < 2) { setErr('#fwName', '#ewName', 'Xin để lại tên của bạn.'); bad = bad || $('#wName'); } else setErr('#fwName', '#ewName', '');
+    if (text.length < 3) { setErr('#fwText', '#ewText', 'Lời chúc hơi ngắn một chút.'); bad = bad || wText; } else setErr('#fwText', '#ewText', '');
+    if (bad) { bad.focus(); return; }
+    const w = { name, text, at: new Date().toISOString() };
+    const list = store.get('cophong_wishes'); list.push(w); store.set('cophong_wishes', list);
+    renderWishes();
+    const first = sky.firstElementChild;
+    if (first && !reduce) first.classList.add('rise');
+    const firstCard = wishList.firstElementChild;
+    if (firstCard) firstCard.classList.add('new');
+    e.target.reset(); $('#wCount').textContent = '0';
+    toast('Ngọn thiên đăng của bạn đã bay lên');
+  });
+
+  /* ---------- Lễ kim: túi gấm ---------- */
+  const copyText = txt => {
+    const done = () => toast('Đã sao chép số tài khoản ' + txt);
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(txt).then(done).catch(() => legacy());
+    legacy();
+    function legacy() {
+      const ta = Object.assign(document.createElement('textarea'), { value: txt });
+      ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) { toast('Không sao chép được — vui lòng ghi lại: ' + txt); }
+      ta.remove();
+    }
+  };
+  $('#pouches').innerHTML = WEDDING.gifts.map((g, i) => `
+    <div class="gift rv" style="--d:${(i * .15).toFixed(2)}s">
+      <button class="pouch" type="button" aria-expanded="false" aria-controls="gc${i}" aria-label="Mở túi gấm ${esc(g.side)}">
+        <span class="pouch-neck"></span><span class="pouch-cord"></span>
+        <span class="pouch-body"><span class="medal"><span class="cn" aria-hidden="true">囍</span></span><span class="pouch-side">${esc(g.side)}</span><span class="pouch-hint">Chạm để mở</span></span>
+      </button>
+      <div class="gift-card" id="gc${i}" hidden>
+        <p class="gc-side">${esc(g.side)}</p>
+        <p class="gc-who">${esc(g.who)}</p>
+        <div class="qr">${g.qr ? `<img src="${esc(g.qr)}" alt="Mã QR chuyển khoản ${esc(g.side)}">` : 'Thay bằng ảnh QR của bạn'}</div>
+        <div class="gc-row"><span>Ngân hàng</span><b>${esc(g.bank)}</b></div>
+        <div class="gc-row"><span>Chủ tài khoản</span><b>${esc(g.holder)}</b></div>
+        <div class="gc-acc"><strong>${esc(g.account)}</strong><button class="btn sm" type="button" data-copy="${esc(g.account)}">Sao chép</button></div>
+        <button class="gc-close" type="button">Đóng túi gấm</button>
+      </div>
+    </div>`).join('');
+  $$('.gift').forEach(gift => {
+    const pouch = $('.pouch', gift), cardEl = $('.gift-card', gift);
+    pouch.addEventListener('click', () => {
+      gift.classList.add('open'); cardEl.hidden = false; pouch.setAttribute('aria-expanded', 'true');
+      $('[data-copy]', cardEl).focus({ preventScroll: true });
+    });
+    $('.gc-close', gift).addEventListener('click', () => {
+      gift.classList.remove('open'); cardEl.hidden = true; pouch.setAttribute('aria-expanded', 'false'); pouch.focus();
+    });
+    $('[data-copy]', cardEl).addEventListener('click', e => copyText(e.currentTarget.dataset.copy));
+  });
+
+  /* ---------- Reveal on scroll (đặt sau khi đã dựng nội dung động) ---------- */
+  const rvs = $$('.rv');
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver(es => es.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    }), { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+    rvs.forEach(el => io.observe(el));
+  } else rvs.forEach(el => el.classList.add('in'));
+
+  onScroll();
+})();
+</script>
+</body>
+</html>
